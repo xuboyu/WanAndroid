@@ -1,0 +1,23 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="mt5">5dp</dimen>
+    <dimen name="mt10">10dp</dimen>
+    <dimen name="mt20">20dp</dimen>
+    <dimen name="ms50">50dp</dimen>
+
+    <!-- 控件属性 -->
+    <dimen name="h40">40dp</dimen>
+    <dimen name="h50">50dp</dimen>
+
+    <!-- textview -->
+    <dimen name="tip_text">16sp</dimen>
+</resources>
