@@ -18,4 +18,14 @@
         <!--<item name="android:windowTranslucentNavigation">false</item>-->
     </style>
 
+    <style name="CustomAppTheme_textinputLayout" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorAccent">@color/colorPrimary1</item>
+        <item name="android:textColorHint">@color/colorPrimary1</item>
+        <item name="colorControlNormal">@color/colorPrimary1</item>
+        <item name="colorControlActivated">@color/colorPrimary1</item>
+        <item name="colorControlHighlight">@color/colorPrimary1</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
 </resources>

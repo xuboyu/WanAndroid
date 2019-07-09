@@ -5,6 +5,7 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
@@ -15,7 +16,7 @@ import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
  * time: 2019/4/12
  **/
 
-class SplashActivity : BaseActivity() {
+class SplashActivity : AppCompatActivity() {
 
     var animalSet = AnimatorSet()
 
@@ -56,7 +57,6 @@ class SplashActivity : BaseActivity() {
                     } catch (e: InterruptedException) {
                         e.printStackTrace()
                     }
-
                 }
 
                 override fun onAnimationCancel(animation: Animator) {

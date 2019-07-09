@@ -1,13 +1,42 @@
 <resources>
+    
     <string name="app_name">WanAndroid</string>
+    
     <!-- 控件参数设置 -->
     <string name="tipSize">16sp</string>
+    
     <!-- 闪屏 -->
     <string name="version">V1.0</string>
+    
     <!-- 登录界面文字 -->
+    <string name="back">返回</string>
     <string name="username">账号：</string>
     <string name="password">密码：</string>
+    <string name="repassword">确认密码：</string>
     <string name="register">注册</string>
     <string name="login">登录</string>
+    <string name="register_back">返回登录</string>
     <string name="auto_login">自动登录</string>
+    <string name="user_not_empty">账号不能为空</string>
+    <string name="pwd_not_empty">密码不能为空</string>
+    <string name="pwd_too_short">密码不得低于6位数</string>
+    <string name="repwd_not_same">两次输入的密码不一致</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_fail">登录失败</string>
+    <string name="register_success">注册成功</string>
+    <string name="register_fail">注册失败</string>
+    
+    <!-- 首页界面文字 -->
+    <string name="title_home">首页</string>
+    <string name="title_system">知识体系</string>
+    <string name="title_my">我的</string>
+    
+    <!-- 我的界面文字 -->
+    <string name="not_login">点击登录</string>
+    <string name="todo_text">待办事项</string>
+    <string name="c_web_text">网址收藏</string>
+    <string name="c_word_text">文章收藏</string>
+    <string name="about">关于APP</string>
+    <string name="logout">注销登录</string>
+    
 </resources>

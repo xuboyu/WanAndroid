@@ -5,10 +5,10 @@ package wanandroid.xuboyu.com.wanandroid.bean
  * author: XuBoYu
  * time: 2019/4/18
  **/
-data class LoginBean(
+data class LoginResponse(
     var errorCode: Int,
     var errorMsg: String?,
-    var data: Data
+        var data: Data
 ) {
     data class Data(
             var id: Int,

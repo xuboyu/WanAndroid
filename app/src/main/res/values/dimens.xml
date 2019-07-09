@@ -12,6 +12,9 @@
     <dimen name="mt5">5dp</dimen>
     <dimen name="mt10">10dp</dimen>
     <dimen name="mt20">20dp</dimen>
+
+    <dimen name="ms10">10dp</dimen>
+    <dimen name="ms20">20dp</dimen>
     <dimen name="ms50">50dp</dimen>
 
     <!-- 控件属性 -->
@@ -19,5 +22,12 @@
     <dimen name="h50">50dp</dimen>
 
     <!-- textview -->
-    <dimen name="tip_text">16sp</dimen>
+    <dimen name="sp12">12sp</dimen>
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="sp16">16sp</dimen>
+    <dimen name="sp18">18sp</dimen>
+
+    <!-- ImageView -->
+    <dimen name="my_view">28dp</dimen>
+
 </resources>
