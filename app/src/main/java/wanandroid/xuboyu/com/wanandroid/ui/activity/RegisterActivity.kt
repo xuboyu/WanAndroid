@@ -28,7 +28,7 @@ class RegisterActivity: BaseActivity(), RegisterView {
     override fun setLayoutId(): Int = R.layout.activity_register
 
     override fun cancelRequest() {
-
+        registerPresenter.cancelRequest()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

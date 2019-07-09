@@ -24,12 +24,16 @@ class LoginPresenterImpl(private val loginView: LoginView) : HomePresenter.OnLog
             loginView.loginFailed(result.errorMsg)
         } else {
             loginView.loginSuccess(result)
-//            loginView.loginRegisterAfter(result)
+            loginView.afterLoginSuccess(result)
         }
     }
 
     override fun loginFailed(errorMessage: String?) {
         loginView.loginFailed(errorMessage)
+    }
+
+    fun cancelRequest() {
+        homeModel.cancelLoginRequest()
     }
 
 }

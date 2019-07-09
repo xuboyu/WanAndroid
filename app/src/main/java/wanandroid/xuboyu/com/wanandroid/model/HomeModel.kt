@@ -22,6 +22,11 @@ interface HomeModel {
     )
 
     /**
+     * 取消登录访问
+     */
+    fun cancelLoginRequest()
+
+    /**
      * 注册操作
      * @param onRegisterListener HomePresenter.OnRegisterListener
      * @param username username
@@ -34,4 +39,9 @@ interface HomeModel {
             password: String,
             repassword: String
     )
+
+    /**
+     * 取消注册访问
+     */
+    fun cancelRegisterRequest()
 }

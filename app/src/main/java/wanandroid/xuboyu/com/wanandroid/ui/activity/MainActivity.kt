@@ -8,6 +8,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
+import wanandroid.xuboyu.com.wanandroid.base.Preference
+import wanandroid.xuboyu.com.wanandroid.common.Constant
+import wanandroid.xuboyu.com.wanandroid.toast
 import wanandroid.xuboyu.com.wanandroid.ui.fragment.MyFragment
 
 class MainActivity : BaseActivity() {
@@ -18,7 +21,7 @@ class MainActivity : BaseActivity() {
     override fun setLayoutId(): Int = R.layout.activity_main
 
     override fun cancelRequest() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

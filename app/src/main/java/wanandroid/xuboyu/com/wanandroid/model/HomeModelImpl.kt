@@ -9,6 +9,7 @@ import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.presenter.HomePresenter
 import wanandroid.xuboyu.com.wanandroid.retrofit.RetrofitHelper
 import wanandroid.xuboyu.com.wanandroid.tryCatch
+import kotlin.math.log
 
 /**
  * use：首页Model实现类
@@ -21,6 +22,7 @@ class HomeModelImpl : HomeModel{
      * Login async
      */
     private var loginAsync: Deferred<LoginResponse>? = null
+
     /**
      * Register async
      */
@@ -45,10 +47,14 @@ class HomeModelImpl : HomeModel{
                         onLoginListener.loginFailed(Constant.RESULT_NULL)
                         return@async
                     }
-                    onLoginListener.loginSuccess(result)
+                    result?.let { onLoginListener.loginSuccess(it) }
                 }
             }
 
+    }
+
+    override fun cancelLoginRequest() {
+        loginAsync?.cancelByActivite()
     }
 
     override fun registerWanAndroid(
@@ -71,8 +77,13 @@ class HomeModelImpl : HomeModel{
                     onRegisterListener.registerFailed(Constant.RESULT_NULL)
                     return@async
                 }
-                onRegisterListener.registerSuccess(result)
+                result?.let { onRegisterListener.registerSuccess(it) }
             }
         }
     }
+
+    override fun cancelRegisterRequest() {
+        registerAsync?.cancelByActivite()
+    }
+
 }

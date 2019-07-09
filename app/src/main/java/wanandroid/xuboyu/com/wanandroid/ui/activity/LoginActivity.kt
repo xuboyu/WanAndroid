@@ -1,5 +1,6 @@
 package wanandroid.xuboyu.com.wanandroid.ui.activity
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -38,7 +39,7 @@ class LoginActivity : BaseActivity(), LoginView {
     override fun setLayoutId(): Int = R.layout.activity_login
 
     override fun cancelRequest() {
-
+        loginPresenter.cancelRequest()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -116,7 +117,19 @@ class LoginActivity : BaseActivity(), LoginView {
     }
 
     override fun loginFailed(errorMsg: String?) {
+        isLogin = false
         toast(getString(R.string.login_fail)+"-"+errorMsg)
+    }
+
+    override fun afterLoginSuccess(result: LoginResponse) {
+        isLogin = true
+        userName = result.data.username
+        passWard = result.data.password
+        setResult(
+                Activity.RESULT_OK,
+                Intent().apply { putExtra(Constant.NICK_NAME_TEXT, result.data.username) }
+        )
+        finish()
     }
 
 }

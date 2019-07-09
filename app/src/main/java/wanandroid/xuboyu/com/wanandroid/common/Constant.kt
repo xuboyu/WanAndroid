@@ -30,6 +30,11 @@ object Constant {
     const val RESULT_NULL = "result null!"
 
     /**
+     * nickname
+     */
+    const val NICK_NAME_TEXT = "nickname"
+
+    /**
      * Toast
      */
     @JvmField
@@ -67,6 +72,16 @@ object Constant {
      * Debug
      */
     const val INTERCEPTOR_ENABLE = true
+
+    /* ================================== END ==================================*/
+
+    /* ================================== OTHER CODE ==================================*/
+
+    /**
+     * 一些界面跳转参数设置
+     */
+    const val MY_REQUEST_CODE = 100
+
 
     /* ================================== END ==================================*/
 }

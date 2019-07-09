@@ -31,4 +31,8 @@ class RegisterPresenterImpl(private val registerView: RegisterView) : HomePresen
         registerView.registerFailed(errorMessage)
     }
 
+    fun cancelRequest() {
+        homeModel.cancelRegisterRequest()
+    }
+
 }

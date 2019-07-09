@@ -22,4 +22,10 @@ interface LoginView {
      */
     fun loginFailed(errorMsg: String?)
 
+    /**
+     * 登录成功后续
+     * @param result
+     */
+    fun afterLoginSuccess(result: LoginResponse)
+
 }

@@ -33,7 +33,7 @@ class Preference<T>(private val name: String,private val default: T) : ReadWrite
 
     override fun getValue(thisRef: Any?, property: KProperty<*>): T = findPreference(name, default)
 
-    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = putPreference(name, default)
+    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = putPreference(name, value)
 
     @Suppress("UNCHECKED_CAST")
     private fun <U> findPreference(name: String, default: U) : U = with(preference) {
