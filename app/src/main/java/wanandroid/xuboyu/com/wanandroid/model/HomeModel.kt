@@ -44,4 +44,32 @@ interface HomeModel {
      * 取消注册访问
      */
     fun cancelRegisterRequest()
+
+    /**
+     * 获取首页文章列表
+     * @param onHomeListListener HomePresenter.OnHomeListListener
+     * @param page page
+     */
+    fun getHomeList(
+            onHomeListListener: HomePresenter.OnHomeListListener,
+            page: Int = 0
+    )
+
+    /**
+     * 取消首页列表请求
+     */
+    fun cancelHomeListRequest()
+
+    /**
+     * 获取首页轮播图
+     * @param onBannerListener HomePresenter.OnBannerListener
+     */
+    fun getBanner(onBannerListener: HomePresenter.OnBannerListener)
+
+
+    /**
+     * 取消轮播图请求
+     */
+    fun cancelBannerRequest()
+
 }

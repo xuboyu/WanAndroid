@@ -3,6 +3,8 @@ package wanandroid.xuboyu.com.wanandroid.model
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
+import wanandroid.xuboyu.com.wanandroid.bean.BannerResponse
+import wanandroid.xuboyu.com.wanandroid.bean.HomeListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.LoginResponse
 import wanandroid.xuboyu.com.wanandroid.cancelByActivite
 import wanandroid.xuboyu.com.wanandroid.common.Constant
@@ -19,14 +21,24 @@ import kotlin.math.log
 class HomeModelImpl : HomeModel{
 
     /**
-     * Login async
+     * 登录 async
      */
     private var loginAsync: Deferred<LoginResponse>? = null
 
     /**
-     * Register async
+     * 注册 async
      */
     private var registerAsync: Deferred<LoginResponse>? = null
+
+    /**
+     * 首页获取文章列表 async
+     */
+    private var homeListAsync: Deferred<HomeListResponse>? = null
+
+    /**
+     * 获取首页轮播图 async
+     */
+    private var homeBannerAsync: Deferred<BannerResponse>? = null
 
     override fun loginWanAndroid(
             onLoginListener: HomePresenter.OnLoginListener,
@@ -84,6 +96,55 @@ class HomeModelImpl : HomeModel{
 
     override fun cancelRegisterRequest() {
         registerAsync?.cancelByActivite()
+    }
+
+    override fun getHomeList(
+            onHomeListListener: HomePresenter.OnHomeListListener,
+            page: Int) {
+
+        async(UI) {
+            tryCatch({
+                //catch区块
+                it.printStackTrace()
+                onHomeListListener.getHomeListFailed(it.toString())
+            }) {
+                //try区块
+                homeListAsync?.cancelByActivite()
+                homeListAsync = RetrofitHelper.retrofitService.getHomeList(page)
+                val result = homeListAsync?.await()
+                result ?: let {
+                    onHomeListListener.getHomeListFailed(Constant.RESULT_NULL)
+                    return@async
+                }
+                result?.let { onHomeListListener.getHomeListSuccess(it) }
+            }
+        }
+    }
+
+    override fun cancelHomeListRequest() {
+        homeListAsync?.cancelByActivite()
+    }
+
+    override fun getBanner(onBannerListener: HomePresenter.OnBannerListener) {
+        async(UI) {
+            tryCatch({
+                it.printStackTrace()
+                onBannerListener.getBannerFailed(it.toString())
+            }) {
+                homeBannerAsync?.cancelByActivite()
+                homeBannerAsync = RetrofitHelper.retrofitService.getBanner()
+                val result = homeBannerAsync?.await()
+                result ?: let {
+                    onBannerListener.getBannerFailed(Constant.RESULT_NULL)
+                    return@async
+                }
+                result?.let { onBannerListener.getBannerSuccess(it) }
+            }
+        }
+    }
+
+    override fun cancelBannerRequest() {
+        homeBannerAsync?.cancelByActivite()
     }
 
 }

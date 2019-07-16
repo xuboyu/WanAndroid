@@ -1,7 +1,10 @@
 package wanandroid.xuboyu.com.wanandroid
 
 import android.content.Context
+import android.support.annotation.LayoutRes
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.JobCancellationException
@@ -13,6 +16,14 @@ import kotlin.text.StringBuilder
  * author: XuBoYu
  * time: 2019/7/2
  **/
+
+/**
+ * LayoutInflater.from(this).inflate
+ * @param resource layoutId
+ * @return View
+ */
+fun Context.inflater(@LayoutRes resource: Int): View =
+        LayoutInflater.from(this).inflate(resource, null)
 
 /**
  * Log

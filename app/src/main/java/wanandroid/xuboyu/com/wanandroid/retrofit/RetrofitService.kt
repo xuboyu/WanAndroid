@@ -2,10 +2,9 @@ package wanandroid.xuboyu.com.wanandroid.retrofit
 
 import kotlinx.coroutines.experimental.Deferred
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
+import wanandroid.xuboyu.com.wanandroid.bean.BannerResponse
+import wanandroid.xuboyu.com.wanandroid.bean.HomeListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.LoginResponse
 import wanandroid.xuboyu.com.wanandroid.common.Constant
 
@@ -43,5 +42,22 @@ interface RetrofitService {
             @Field("password") password: String,
             @Field("repassword") repassword: String
     ): Deferred<LoginResponse>
+
+    /**
+     * 首页数据
+     * http://www.wanandroid.com/article/list/0/json
+     * @param page page
+     */
+    @GET(Constant.HomeList)
+    fun getHomeList(
+            @Path("page") page: Int
+    ): Deferred<HomeListResponse>
+
+    /**
+     * 首页Banner
+     * @return BannerResponse
+     */
+    @GET(Constant.homeBanner)
+    fun getBanner(): Deferred<BannerResponse>
 
 }

@@ -62,7 +62,18 @@ object Constant {
     /**
      * 登出接口
      */
-    const val LOGOUT = REQUEST_BASE_URL + "logout/json"
+    const val LOGOUT = "logout/json"
+
+    /**
+     * 首页文章列表
+     */
+    const val HomeList = "/article/list/{page}/json"
+
+    /**
+     * 首页banner轮播图
+     */
+    const val homeBanner = "/banner/json"
+
 
     /* ================================== END ==================================*/
 
@@ -81,7 +92,7 @@ object Constant {
      * 一些界面跳转参数设置
      */
     const val MY_REQUEST_CODE = 100
-
+    const val HOME_REQUEST_CODE = 100
 
     /* ================================== END ==================================*/
 }

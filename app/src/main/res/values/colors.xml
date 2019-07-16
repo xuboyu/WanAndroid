@@ -11,4 +11,5 @@
     <color name="view_bg">#F6F6F6</color>
 
     <color name="alpha_white">#00ffffff</color>
+    <color name="black_trans">#5c000000</color>
 </resources>
