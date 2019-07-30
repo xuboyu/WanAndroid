@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -44,6 +45,7 @@
             android:layout_marginStart="@dimen/ms50"
             android:layout_marginEnd="@dimen/ms50"
             android:layout_width="match_parent"
+            app:passwordToggleEnabled="true"
             android:layout_height="@dimen/h50">
 
             <EditText
@@ -52,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
                 android:maxLines="1"
+                android:inputType="textPassword"
                 android:singleLine="true"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -64,6 +67,7 @@
             android:layout_marginStart="@dimen/ms50"
             android:layout_marginEnd="@dimen/ms50"
             android:layout_width="match_parent"
+            app:passwordToggleEnabled="true"
             android:layout_height="@dimen/h50">
 
             <EditText
@@ -72,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/repassword"
                 android:maxLines="1"
+                android:inputType="textPassword"
                 android:singleLine="true"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -80,7 +85,7 @@
             android:layout_below="@+id/repwd_edit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/h50"
-            android:layout_marginTop="@dimen/mt10"
+            android:layout_marginTop="@dimen/mt20"
             android:layout_marginStart="@dimen/ms50"
             android:layout_marginEnd="@dimen/ms50">
 
@@ -89,14 +94,19 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/back"/>
+                android:text="@string/back"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/button_nocolor"/>
 
             <Button
                 android:id="@+id/register"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/register"/>
+                android:layout_marginStart="@dimen/ms20"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                android:background="@drawable/button_color"/>
 
         </LinearLayout>
 

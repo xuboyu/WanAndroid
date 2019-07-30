@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.fragment_my.*
 import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
 import wanandroid.xuboyu.com.wanandroid.base.Preference
@@ -48,6 +49,18 @@ class LoginActivity : BaseActivity(), LoginView {
         register.setOnClickListener(onClickListener)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode) {
+            Constant.REGISTER_REQUEST_CODE -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    username.setText(data?.getStringExtra(Constant.NICK_NAME_TEXT))
+                    password.setText(data?.getStringExtra(Constant.PASSWORD_TEXT))
+                }
+            }
+        }
+    }
+
     /**
      * 控件监听事件
      */
@@ -61,7 +74,7 @@ class LoginActivity : BaseActivity(), LoginView {
 
             R.id.register -> {
                 Intent(this, RegisterActivity::class.java).run {
-                    startActivity(this)
+                    startActivityForResult(this,Constant.REGISTER_REQUEST_CODE)
                 }
             }
         }
@@ -108,9 +121,7 @@ class LoginActivity : BaseActivity(), LoginView {
         } else {
             return true
         }
-
     }
-
 
     override fun loginSuccess(result: LoginResponse) {
         toast(getString(R.string.login_success))

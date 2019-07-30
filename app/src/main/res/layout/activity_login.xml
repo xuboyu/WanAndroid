@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -46,6 +47,7 @@
             android:layout_marginStart="@dimen/ms50"
             android:layout_marginEnd="@dimen/ms50"
             android:layout_width="match_parent"
+            app:passwordToggleEnabled="true"
             android:layout_height="@dimen/h50">
 
             <EditText
@@ -59,35 +61,36 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <!--<LinearLayout-->
+            <!--android:id="@+id/check_l"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/password_edit"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_marginEnd="@dimen/ms50">-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/auto_login"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginEnd="@dimen/mt5"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:text="@string/auto_login"-->
+                <!--android:layout_toEndOf="@id/auto_login"/>-->
+
+        <!--</LinearLayout>-->
+
         <LinearLayout
-            android:id="@+id/check_l"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/password_edit"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/ms50">
-
-            <CheckBox
-                android:id="@+id/auto_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/mt5"
-                android:textColor="@color/black"
-                android:text="@string/auto_login"
-                android:layout_toEndOf="@id/auto_login"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_below="@+id/check_l"
+            android:layout_below="@+id/password_edit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/h50"
             android:layout_marginStart="@dimen/ms50"
+            android:layout_marginTop="@dimen/mt20"
             android:layout_marginEnd="@dimen/ms50">
 
             <Button
@@ -95,14 +98,19 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/register"/>
+                android:text="@string/register"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/button_nocolor"/>
 
             <Button
                 android:id="@+id/login"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/login"/>
+                android:layout_marginStart="@dimen/ms20"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:background="@drawable/button_color"/>
 
         </LinearLayout>
 

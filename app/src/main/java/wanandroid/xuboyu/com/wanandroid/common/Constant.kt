@@ -35,6 +35,11 @@ object Constant {
     const val NICK_NAME_TEXT = "nickname"
 
     /**
+     * password
+     */
+    const val PASSWORD_TEXT = "password"
+
+    /**
      * Toast
      */
     @JvmField
@@ -107,7 +112,7 @@ object Constant {
      * 一些界面跳转参数设置
      */
     const val MY_REQUEST_CODE = 100
-    const val HOME_REQUEST_CODE = 100
+    const val REGISTER_REQUEST_CODE = 100
 
     /**
      * 分享相关设置

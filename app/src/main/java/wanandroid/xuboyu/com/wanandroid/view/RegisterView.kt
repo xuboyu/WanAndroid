@@ -20,4 +20,9 @@ interface RegisterView {
      * @param errorMsg
      */
     fun registerFailed(errorMsg: String?)
+
+    /**
+     * 注册成功后续操作
+     */
+    fun afterRegisterSuccess(result: LoginResponse)
 }

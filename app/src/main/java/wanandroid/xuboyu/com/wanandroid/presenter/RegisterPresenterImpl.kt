@@ -24,6 +24,7 @@ class RegisterPresenterImpl(private val registerView: RegisterView) : HomePresen
             registerView.registerFailed(result.errorMsg)
         } else {
             registerView.registerSuccess(result)
+            registerView.afterRegisterSuccess(result)
         }
     }
 

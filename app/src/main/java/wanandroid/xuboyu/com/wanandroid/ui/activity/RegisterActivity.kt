@@ -1,5 +1,7 @@
 package wanandroid.xuboyu.com.wanandroid.ui.activity
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -9,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_register.username
 import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
 import wanandroid.xuboyu.com.wanandroid.bean.LoginResponse
+import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.loge
 import wanandroid.xuboyu.com.wanandroid.presenter.RegisterPresenterImpl
 import wanandroid.xuboyu.com.wanandroid.toast
@@ -24,6 +27,9 @@ class RegisterActivity: BaseActivity(), RegisterView {
     private val registerPresenter: RegisterPresenterImpl by lazy {
         RegisterPresenterImpl(this)
     }
+
+    private var userName: String? = null
+    private var passWard: String? = null
 
     override fun setLayoutId(): Int = R.layout.activity_register
 
@@ -119,7 +125,6 @@ class RegisterActivity: BaseActivity(), RegisterView {
         } else {
             return true
         }
-
     }
 
     override fun registerSuccess(result: LoginResponse) {
@@ -128,6 +133,19 @@ class RegisterActivity: BaseActivity(), RegisterView {
 
     override fun registerFailed(errorMsg: String?) {
         toast(getString(R.string.register_fail) + "-" + errorMsg)
+    }
+
+    override fun afterRegisterSuccess(result: LoginResponse) {
+        userName = result.data.username
+        passWard = result.data.password
+        setResult(
+                Activity.RESULT_OK,
+                Intent().apply {
+                    putExtra(Constant.NICK_NAME_TEXT, result.data.username)
+                    putExtra(Constant.PASSWORD_TEXT, repwd.text.toString())
+                }
+        )
+        finish()
     }
 
 }

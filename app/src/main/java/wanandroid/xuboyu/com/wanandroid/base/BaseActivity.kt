@@ -7,6 +7,7 @@ import android.view.KeyEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.gyf.barlibrary.ImmersionBar
+import wanandroid.xuboyu.com.wanandroid.utils.AndroidBug5497Workaround
 
 /**
  * use：Activity基类
@@ -27,6 +28,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        AndroidBug5497Workaround.assistActivity(this)
         setContentView(setLayoutId())//绑定界面
         initImmersionBar()//初始化bar
     }

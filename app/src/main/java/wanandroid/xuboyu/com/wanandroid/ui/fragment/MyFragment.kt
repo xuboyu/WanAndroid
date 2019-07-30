@@ -1,6 +1,8 @@
 package wanandroid.xuboyu.com.wanandroid.ui.fragment
 
 import android.app.Activity.RESULT_OK
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -108,10 +110,18 @@ class MyFragment: BaseFragment() {
             }
 
             R.id.logout_r -> {
-                Preference.clear()
-                nickName.text = getString(R.string.not_login)
-                logout_r.visibility = View.GONE
-                showToast("退出成功")
+                AlertDialog.Builder(activity)
+                        .setMessage("注销登录会清除本地相关数据，是否注销退出？")
+                        .setTitle("退出")
+                        .setPositiveButton("确定", DialogInterface.OnClickListener { dialogInterface, i ->
+                            Preference.clear()
+                            nickName.text = getString(R.string.not_login)
+                            logout_r.visibility = View.GONE
+                            showToast("退出成功")
+                        })
+                        .setNeutralButton("取消", null)
+                        .create()
+                        .show()
             }
         }
     }
