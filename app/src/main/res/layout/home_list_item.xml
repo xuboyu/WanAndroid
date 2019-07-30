@@ -40,7 +40,8 @@
         android:layout_marginStart="@dimen/mt5"
         android:layout_marginTop="@dimen/mt10"
         android:text="99+"
-        android:textSize="10sp"/>
+        android:textSize="10sp"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/item_share"

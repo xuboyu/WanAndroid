@@ -32,6 +32,10 @@
     <string name="title_system">知识体系</string>
     <string name="title_my">个人中心</string>
     <string name="double_click_exit">再按一次退出程序</string>
+    <string name="collect_success">收藏成功</string>
+    <string name="collect_fail">收藏失败</string>
+    <string name="unCollect_success">取消收藏成功</string>
+    <string name="unCollect_fail">取消收藏失败</string>
 
     <!-- 首页列表文字 -->
     <string name="get_data_error">加载失败</string>
@@ -47,5 +51,11 @@
     <string name="c_word_text">文章收藏</string>
     <string name="about">关于APP</string>
     <string name="logout">注销登录</string>
+
+    <!-- webView相关 -->
+    <string name="loading">加载中...</string>
+    <string name="share_title">分享</string>
+    <string name="like_title">收藏</string>
+    <string name="share_article_url">%1$s分享【%2$s】：%3$s</string>
     
 </resources>

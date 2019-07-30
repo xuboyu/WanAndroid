@@ -48,7 +48,7 @@ interface RetrofitService {
      * http://www.wanandroid.com/article/list/0/json
      * @param page page
      */
-    @GET(Constant.HomeList)
+    @GET(Constant.HOMELIST)
     fun getHomeList(
             @Path("page") page: Int
     ): Deferred<HomeListResponse>
@@ -57,7 +57,36 @@ interface RetrofitService {
      * 首页Banner
      * @return BannerResponse
      */
-    @GET(Constant.homeBanner)
+    @GET(Constant.HOMEBANNER)
     fun getBanner(): Deferred<BannerResponse>
 
+    /**
+     * 收藏站内文章
+     * @param id 收藏文章id
+     */
+    @POST(Constant.ADDCOLLECTIN)
+    fun addColltectIn(
+            @Path("id") id: Int
+    ): Deferred<HomeListResponse>
+
+
+    @POST(Constant.ADDCOLLECTOUT)
+    @FormUrlEncoded
+    fun addCollectOut(
+            @Field("title") title: String,
+            @Field("author") author: String,
+            @Field("link") link: String
+    ): Deferred<HomeListResponse>
+
+    /**
+     * 取消收藏
+     * @param id 获取文章id
+     * @param originId 文章本身id，传-1
+     */
+    @POST(Constant.REMOVE_COLLECT)
+    @FormUrlEncoded
+    fun removeCollect(
+            @Path("id") id: Int,
+            @Field("originId") originId: Int = -1
+    ): Deferred<HomeListResponse>
 }

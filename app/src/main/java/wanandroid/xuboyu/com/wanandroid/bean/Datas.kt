@@ -7,8 +7,11 @@ package wanandroid.xuboyu.com.wanandroid.bean
  **/
 data class Datas (
     var id: Int,
+    var userId: Int,
     var originId: Int,
     var title: String,
+    var superChapterId: Int,
+    var superChapterName: String?,
     var chapterId: Int,
     var chapterName: String?,
     var envelopePic: Any,

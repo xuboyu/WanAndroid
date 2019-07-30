@@ -28,7 +28,9 @@ import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.inflater
 import wanandroid.xuboyu.com.wanandroid.presenter.HomeFragmentImpl
 import wanandroid.xuboyu.com.wanandroid.toast
+import wanandroid.xuboyu.com.wanandroid.ui.activity.ContentActivity
 import wanandroid.xuboyu.com.wanandroid.ui.activity.LoginActivity
+import wanandroid.xuboyu.com.wanandroid.view.CollectArticleView
 import wanandroid.xuboyu.com.wanandroid.view.HomeFragmentView
 
 /**
@@ -36,7 +38,7 @@ import wanandroid.xuboyu.com.wanandroid.view.HomeFragmentView
  * author: XuBoYu
  * time: 2019/4/19
  **/
-class HomeFragment : BaseFragment(), HomeFragmentView {
+class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
 
     companion object {
         private const val BANNER_TIME = 5000L
@@ -50,7 +52,7 @@ class HomeFragment : BaseFragment(), HomeFragmentView {
 
     //presenter
     private val homeFragmentImpl: HomeFragmentImpl by lazy {
-        HomeFragmentImpl(this)
+        HomeFragmentImpl(this, this)
     }
 
     //轮播 Banner data
@@ -168,12 +170,15 @@ class HomeFragment : BaseFragment(), HomeFragmentView {
      */
     private val onItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
         if (datas.size != 0) {
-//            Intent(activity, ContentActivity::class.java).run {
-//                putExtra(Constant.CONTENT_URL_KEY, datas[position].link)
-//                putExtra(Constant.CONTENT_ID_KEY, datas[position].id)
-//                putExtra(Constant.CONTENT_TITLE_KEY, datas[position].title)
-//                startActivity(this)
-//            }
+            Intent(activity, ContentActivity::class.java).run {
+                putExtra(Constant.CONTENT_URL_KEY, datas[position].link)
+                putExtra(Constant.CONTENT_ID_KEY, datas[position].id)
+                putExtra(Constant.CONTENT_TITLE_KEY, datas[position].title)
+                putExtra(Constant.CONTENT_USER_ID, datas[position].userId)
+                putExtra(Constant.CONTENT_IS_COLLECT, datas[position].collect)
+                putExtra(Constant.CONTENT_AUTHOR, datas[position].author)
+                startActivity(this)
+            }
         }
     }
 
@@ -182,11 +187,12 @@ class HomeFragment : BaseFragment(), HomeFragmentView {
      */
     private val onBannerItemClickListener = BaseQuickAdapter.OnItemClickListener { _, _, position ->
         if (bannerDatas.size != 0) {
-//            Intent(activity, ContentActivity::class.java).run {
-//                putExtra(Constant.CONTENT_URL_KEY, bannerDatas[position].url)
-//                putExtra(Constant.CONTENT_TITLE_KEY, bannerDatas[position].title)
-//                startActivity(this)
-//            }
+            Intent(activity, ContentActivity::class.java).run {
+                putExtra(Constant.CONTENT_URL_KEY, bannerDatas[position].url)
+                putExtra(Constant.CONTENT_TITLE_KEY, bannerDatas[position].title)
+//                putExtra(Constant.CONTENT_USER_ID, bannerDatas[position])
+                startActivity(this)
+            }
         }
     }
 
@@ -214,11 +220,14 @@ class HomeFragment : BaseFragment(), HomeFragmentView {
                                 val collect = data.collect
                                 data.collect = !collect
                                 homeAdapter.setData(position, data)
-//                                homeFragmentPresenter.collectArticle(data.id, !collect)
+                                if(data.chapterName.equals("官方")) {
+                                    //站内文章
+                                    homeFragmentImpl.collectArticle(data.id, !collect, true,data.title, data.author, data.link)
+                                } else {
+                                    //站外文章
+                                    homeFragmentImpl.collectArticle(data.id, !collect, false, data.title, data.author, data.link)
+                                }
                             } else {
-//                                Intent(activity, LoginActivity::class.java).run {
-//                                    startActivityForResult(this, Constant.HOME_REQUEST_CODE)
-//                                }
                                 activity.toast(getString(R.string.login_please_login))
                             }
                         }
@@ -386,6 +395,26 @@ class HomeFragment : BaseFragment(), HomeFragmentView {
         if (isActive) {
             cancel()
         }
+    }
+
+    /**
+     * 收藏/取消收藏 成功
+     */
+    override fun collectArticleSuccess(result: HomeListResponse, isAdd: Boolean) {
+        activity.toast(
+                if (isAdd) activity.getString(R.string.collect_success)
+                else activity.getString(R.string.unCollect_success)
+        )
+    }
+
+    /**
+     * 收藏/取消收藏 失败
+     */
+    override fun collectArticleFailed(errorMessage: String?, isAdd: Boolean) {
+        activity.toast(
+                if (isAdd) activity.getString(R.string.collect_fail, errorMessage)
+                else activity.getString(R.string.unCollect_fail, errorMessage)
+        )
     }
 
 }

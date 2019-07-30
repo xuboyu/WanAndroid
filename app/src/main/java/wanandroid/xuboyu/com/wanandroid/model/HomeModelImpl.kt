@@ -18,7 +18,7 @@ import kotlin.math.log
  * author: XuBoYu
  * time: 2019/7/2
  **/
-class HomeModelImpl : HomeModel{
+class HomeModelImpl : HomeModel, CollectArticleModel{
 
     /**
      * 登录 async
@@ -40,6 +40,14 @@ class HomeModelImpl : HomeModel{
      */
     private var homeBannerAsync: Deferred<BannerResponse>? = null
 
+    /**
+     * 收藏 async
+     */
+    private var collectArticleAsync: Deferred<HomeListResponse>? = null
+
+    /**
+     * 登录
+     */
     override fun loginWanAndroid(
             onLoginListener: HomePresenter.OnLoginListener,
             username: String,
@@ -65,10 +73,16 @@ class HomeModelImpl : HomeModel{
 
     }
 
+    /**
+     * 取消登录
+     */
     override fun cancelLoginRequest() {
         loginAsync?.cancelByActivite()
     }
 
+    /**
+     * 注册
+     */
     override fun registerWanAndroid(
             onRegisterListener: HomePresenter.OnRegisterListener,
             username: String,
@@ -94,10 +108,16 @@ class HomeModelImpl : HomeModel{
         }
     }
 
+    /**
+     * 取消注册
+     */
     override fun cancelRegisterRequest() {
         registerAsync?.cancelByActivite()
     }
 
+    /**
+     * 获取首页
+     */
     override fun getHomeList(
             onHomeListListener: HomePresenter.OnHomeListListener,
             page: Int) {
@@ -121,10 +141,16 @@ class HomeModelImpl : HomeModel{
         }
     }
 
+    /**
+     * 取消获取首页
+     */
     override fun cancelHomeListRequest() {
         homeListAsync?.cancelByActivite()
     }
 
+    /**
+     * 获取banner
+     */
     override fun getBanner(onBannerListener: HomePresenter.OnBannerListener) {
         async(UI) {
             tryCatch({
@@ -138,13 +164,63 @@ class HomeModelImpl : HomeModel{
                     onBannerListener.getBannerFailed(Constant.RESULT_NULL)
                     return@async
                 }
-                result?.let { onBannerListener.getBannerSuccess(it) }
+                result?.let { onBannerListener.getBannerSuccess(result) }
             }
         }
     }
 
+    /**
+     * 取消获取banner
+     */
     override fun cancelBannerRequest() {
         homeBannerAsync?.cancelByActivite()
+    }
+
+    /**
+     * 收藏或取消文章
+     */
+    override fun collectArticle(
+            onCollectArticleListener: HomePresenter.OnCollectArticleListener,
+            id: Int,
+            isAdd: Boolean,
+            isOfficial: Boolean,
+            title: String,
+            author: String,
+            link: String) {
+        async(UI) {
+            tryCatch({
+                it.printStackTrace()
+                onCollectArticleListener.collectArticleFailed(it.toString(), isAdd)
+            }) {
+                collectArticleAsync?.cancelByActivite()
+                if (isAdd) {
+                    if (isOfficial) {
+                        //收藏站内
+                        collectArticleAsync = RetrofitHelper.retrofitService.addColltectIn(id)
+                    } else {
+                        //收藏站外
+                        collectArticleAsync = RetrofitHelper.retrofitService.addCollectOut(title,author,link)
+                    }
+                } else {
+                    //取消收藏
+                    collectArticleAsync = RetrofitHelper.retrofitService.removeCollect(id)
+                }
+                val result = collectArticleAsync?.await()
+                result ?: let {
+                    onCollectArticleListener.collectArticleFailed(Constant.RESULT_NULL,isAdd)
+                    return@async
+                }
+                result?.let { onCollectArticleListener.collectArticleSuccess(result,isAdd) }
+
+                }
+            }
+        }
+
+    /**
+     * 取消收藏
+     */
+    override fun cancelCollectRequest() {
+        collectArticleAsync?.cancelByActivite()
     }
 
 }

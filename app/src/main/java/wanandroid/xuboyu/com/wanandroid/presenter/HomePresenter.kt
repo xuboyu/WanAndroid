@@ -80,25 +80,61 @@ interface HomePresenter {
     }
 
     /**
-     * get banner listener
+     * 获取首页轮播图
      */
     interface OnBannerListener {
         /**
-         * get banner
+         * 获取轮播banner
          */
         fun getBanner()
 
         /**
-         * get banner success
+         * 获取成功
          * @param result BannerResponse
          */
         fun getBannerSuccess(result: BannerResponse)
 
         /**
-         * get banner failed
+         * 获取失败
          * @param errorMessage error message
          */
         fun getBannerFailed(errorMessage: String?)
+    }
+
+    /**
+     * 收藏文章
+     */
+    interface OnCollectArticleListener {
+        /**
+         *  添加或删除
+         *  @param id article id
+         *  @param isAdd true 添加, false 删除
+         *  @param isOfficial true 站内， false 站外
+         *  @param title 站外文章标题
+         *  @param author 站外文章作者
+         *  @param link 站外文章链接
+         */
+        fun collectArticle(id: Int,
+                           isAdd: Boolean,
+                           isOfficial: Boolean,
+                           title: String,
+                           author: String,
+                           link: String)
+
+
+        /**
+         * 收藏添加成功
+         * @param result HomeListResponse
+         * @param isAdd true add, false remove
+         */
+        fun collectArticleSuccess(result: HomeListResponse, isAdd: Boolean)
+
+        /**
+         * 收藏添加失败
+         * @param errorMessage error message
+         * @param isAdd true add, false remove
+         */
+        fun collectArticleFailed(errorMessage: String?, isAdd: Boolean)
     }
 
 }
