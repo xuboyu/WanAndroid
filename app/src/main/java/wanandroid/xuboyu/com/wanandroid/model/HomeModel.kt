@@ -66,10 +66,22 @@ interface HomeModel {
      */
     fun getBanner(onBannerListener: HomePresenter.OnBannerListener)
 
-
     /**
      * 取消轮播图请求
      */
     fun cancelBannerRequest()
+
+    /**
+     * 获取知识体系
+     * @param onTreeListListener HomePresenter.OnTreeListListener
+     */
+    fun getTreeList(
+        onTreeListListener: HomePresenter.OnTreeListListener
+    )
+
+    /**
+     * 取消知识体系请求
+     */
+    fun cancelTreeRequest()
 
 }

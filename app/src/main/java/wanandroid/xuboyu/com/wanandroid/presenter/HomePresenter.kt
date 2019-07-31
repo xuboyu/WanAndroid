@@ -3,6 +3,7 @@ package wanandroid.xuboyu.com.wanandroid.presenter
 import wanandroid.xuboyu.com.wanandroid.bean.BannerResponse
 import wanandroid.xuboyu.com.wanandroid.bean.HomeListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.LoginResponse
+import wanandroid.xuboyu.com.wanandroid.bean.TreeListResponse
 
 interface HomePresenter {
 
@@ -135,6 +136,29 @@ interface HomePresenter {
          * @param isAdd true add, false remove
          */
         fun collectArticleFailed(errorMessage: String?, isAdd: Boolean)
+    }
+
+    /**
+     * 获取知识体系接口
+     */
+    interface OnTreeListListener {
+
+        /**
+         * 获取体系列表
+         */
+        fun getTreeList()
+
+        /**
+         * 获取成功
+         * @param result result
+         */
+        fun getTreeListSuccess(result: TreeListResponse)
+
+        /**
+         * 获取失败
+         * @param errorMessage error message
+         */
+        fun getTreeListFailed(errorMessage: String?)
     }
 
 }

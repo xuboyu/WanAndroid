@@ -35,6 +35,7 @@ class HomeAdapter(val context: Context, datas: MutableList<Datas>) :
                             if (item.collect) R.drawable.like else R.drawable.no_like
                     )
                     .addOnClickListener(R.id.item_collect)
+                    .addOnClickListener(R.id.item_share)
         }
     }
 

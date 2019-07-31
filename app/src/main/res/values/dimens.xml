@@ -18,7 +18,7 @@
     <dimen name="ms50">50dp</dimen>
 
     <!-- 控件属性 -->
-    <dimen name="bar">5dp</dimen>
+    <dimen name="bar">0dp</dimen>
     <dimen name="empty_img">80dp</dimen>
     <dimen name="banner">180dp</dimen>
     <dimen name="h40">40dp</dimen>

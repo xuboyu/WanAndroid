@@ -30,6 +30,7 @@ import wanandroid.xuboyu.com.wanandroid.presenter.HomeFragmentImpl
 import wanandroid.xuboyu.com.wanandroid.toast
 import wanandroid.xuboyu.com.wanandroid.ui.activity.ContentActivity
 import wanandroid.xuboyu.com.wanandroid.ui.activity.LoginActivity
+import wanandroid.xuboyu.com.wanandroid.ui.activity.TypeActivity
 import wanandroid.xuboyu.com.wanandroid.view.CollectArticleView
 import wanandroid.xuboyu.com.wanandroid.view.HomeFragmentView
 
@@ -146,6 +147,12 @@ class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
     private val onRefreshListener = SwipeRefreshLayout.OnRefreshListener {
         refreshData()
     }
+
+    /**
+     * scroll to top
+     */
+    fun smoothScrollToPosition() = home_rv.scrollToPosition(0)
+
     /**
      * refresh
      */
@@ -177,6 +184,7 @@ class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
                 putExtra(Constant.CONTENT_USER_ID, datas[position].userId)
                 putExtra(Constant.CONTENT_IS_COLLECT, datas[position].collect)
                 putExtra(Constant.CONTENT_AUTHOR, datas[position].author)
+                putExtra("banner", false)
                 startActivity(this)
             }
         }
@@ -190,7 +198,11 @@ class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
             Intent(activity, ContentActivity::class.java).run {
                 putExtra(Constant.CONTENT_URL_KEY, bannerDatas[position].url)
                 putExtra(Constant.CONTENT_TITLE_KEY, bannerDatas[position].title)
-//                putExtra(Constant.CONTENT_USER_ID, bannerDatas[position])
+                putExtra(Constant.CONTENT_ID_KEY, "")
+                putExtra(Constant.CONTENT_USER_ID, "")
+                putExtra(Constant.CONTENT_IS_COLLECT, "")
+                putExtra(Constant.CONTENT_AUTHOR, "")
+                putExtra("banner", true)
                 startActivity(this)
             }
         }
@@ -208,12 +220,12 @@ class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
                                 activity.toast(getString(R.string.type_null))
                                 return@OnItemChildClickListener
                             }
-//                            Intent(activity, TypeContentActivity::class.java).run {
-//                                putExtra(Constant.CONTENT_TARGET_KEY, true)
-//                                putExtra(Constant.CONTENT_TITLE_KEY, data.chapterName)
-//                                putExtra(Constant.CONTENT_CID_KEY, data.chapterId)
-//                                startActivity(this)
-//                            }
+                            Intent(activity, TypeActivity::class.java).run {
+                                putExtra(Constant.CONTENT_TARGET_KEY, true)
+                                putExtra(Constant.CONTENT_TITLE_KEY, data.chapterName)
+                                putExtra(Constant.CONTENT_CID_KEY, data.chapterId)
+                                startActivity(this)
+                            }
                         }
                         R.id.item_collect -> {
                             if (isLogin) {
@@ -229,6 +241,22 @@ class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
                                 }
                             } else {
                                 activity.toast(getString(R.string.login_please_login))
+                            }
+                        }
+                        R.id.item_share -> {
+                            Intent().run {
+                                action = Intent.ACTION_SEND
+                                putExtra(
+                                        Intent.EXTRA_TEXT,
+                                        getString(
+                                                R.string.share_article_url,
+                                                getString(R.string.app_name),
+                                                data.title,
+                                                data.link
+                                        )
+                                )
+                                type = Constant.CONTENT_SHARE_TYPE
+                                startActivity(Intent.createChooser(this, getString(R.string.share_title)))
                             }
                         }
                     }

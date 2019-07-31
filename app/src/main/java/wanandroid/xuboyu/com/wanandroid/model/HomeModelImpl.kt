@@ -6,6 +6,7 @@ import kotlinx.coroutines.experimental.async
 import wanandroid.xuboyu.com.wanandroid.bean.BannerResponse
 import wanandroid.xuboyu.com.wanandroid.bean.HomeListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.LoginResponse
+import wanandroid.xuboyu.com.wanandroid.bean.TreeListResponse
 import wanandroid.xuboyu.com.wanandroid.cancelByActivite
 import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.presenter.HomePresenter
@@ -44,6 +45,11 @@ class HomeModelImpl : HomeModel, CollectArticleModel{
      * 收藏 async
      */
     private var collectArticleAsync: Deferred<HomeListResponse>? = null
+
+    /**
+     * 获取知识体系 async
+     */
+    private var treeListAsync: Deferred<TreeListResponse>? = null
 
     /**
      * 登录
@@ -223,4 +229,33 @@ class HomeModelImpl : HomeModel, CollectArticleModel{
         collectArticleAsync?.cancelByActivite()
     }
 
+    /**
+     * 知识体系获取
+     */
+    override fun getTreeList(onTreeListListener: HomePresenter.OnTreeListListener) {
+        async(UI) {
+            tryCatch ({
+                it.printStackTrace()
+                onTreeListListener.getTreeListFailed(it.toString())
+            }) {
+                treeListAsync?.cancelByActivite()
+                treeListAsync = RetrofitHelper.retrofitService.getTreeList()
+                var result = treeListAsync?.await()
+                result ?: let {
+                    onTreeListListener.getTreeListFailed(Constant.RESULT_NULL)
+                    return@async
+                }
+                result?.let {
+                    onTreeListListener.getTreeListSuccess(result)
+                }
+            }
+        }
+    }
+
+    /**
+     * 取消知识体系请求
+     */
+    override fun cancelTreeRequest() {
+        treeListAsync?.cancelByActivite()
+    }
 }

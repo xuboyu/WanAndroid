@@ -94,6 +94,16 @@ object Constant {
      */
     const val REMOVE_COLLECT = "/lg/uncollect_originId/{id}/json"
 
+    /**
+     * 知识体系
+     */
+    const val TREE_LIST = "/tree/json"
+
+    /**
+     * 知识体系下单个类型文章列表
+     */
+    const val TREE_TYPE_LIST = "/article/list/{page}/json"
+
 
     /* ================================== END ==================================*/
 
@@ -130,6 +140,10 @@ object Constant {
      */
     const val CONTENT_TITLE_KEY = "title"
     /**
+     * cid key
+     */
+    const val CONTENT_CID_KEY = "cid"
+    /**
      * 文章 id
      */
     const val CONTENT_ID_KEY = "id"
@@ -145,6 +159,14 @@ object Constant {
      * 文章 作者
      */
     const val CONTENT_AUTHOR = "author"
+    /**
+     * 是否为home跳转
+     */
+    const val CONTENT_TARGET_KEY = "target"
+    /**
+     * childrenData key
+     */
+    const val CONTENT_CHILDREN_DATA_KEY = "childrenData"
 
     /* ================================== END ==================================*/
 }

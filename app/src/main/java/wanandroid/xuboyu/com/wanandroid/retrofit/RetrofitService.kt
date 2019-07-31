@@ -3,9 +3,7 @@ package wanandroid.xuboyu.com.wanandroid.retrofit
 import kotlinx.coroutines.experimental.Deferred
 import retrofit2.Call
 import retrofit2.http.*
-import wanandroid.xuboyu.com.wanandroid.bean.BannerResponse
-import wanandroid.xuboyu.com.wanandroid.bean.HomeListResponse
-import wanandroid.xuboyu.com.wanandroid.bean.LoginResponse
+import wanandroid.xuboyu.com.wanandroid.bean.*
 import wanandroid.xuboyu.com.wanandroid.common.Constant
 
 /**
@@ -69,7 +67,12 @@ interface RetrofitService {
             @Path("id") id: Int
     ): Deferred<HomeListResponse>
 
-
+    /**
+     * 收藏站外文章
+     * @param title 文章标题
+     * @param author 文章作者
+     * @param link 文章链接
+     */
     @POST(Constant.ADDCOLLECTOUT)
     @FormUrlEncoded
     fun addCollectOut(
@@ -89,4 +92,22 @@ interface RetrofitService {
             @Path("id") id: Int,
             @Field("originId") originId: Int = -1
     ): Deferred<HomeListResponse>
+
+    /**
+     * 知识体系
+     */
+    @GET(Constant.TREE_LIST)
+    fun getTreeList(): Deferred<TreeListResponse>
+
+    /**
+     * 知识体系下的文章
+     * http://www.wanandroid.com/article/list/0/json?cid=168
+     * @param page page
+     * @param cid cid
+     */
+    @GET(Constant.TREE_TYPE_LIST)
+    fun getArticleList(
+            @Path("page") page: Int,
+            @Query("cid") cid: Int
+    ): Deferred<ArticleListResponse>
 }

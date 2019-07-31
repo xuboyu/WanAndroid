@@ -31,4 +31,8 @@ class ContentPresenterImpl(private val collectArticleView: CollectArticleView) :
         collectArticleView.collectArticleFailed(errorMessage, isAdd)
     }
 
+    fun cancelRequest() {
+        collectArticleModel.cancelCollectRequest()
+    }
+
 }

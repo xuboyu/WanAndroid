@@ -1,26 +1,29 @@
 package wanandroid.xuboyu.com.wanandroid.ui.activity
 
-import android.app.Fragment
-
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.v4.view.GravityCompat
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
 
 import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
-import wanandroid.xuboyu.com.wanandroid.base.Preference
-import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.toast
 import wanandroid.xuboyu.com.wanandroid.ui.fragment.HomeFragment
 import wanandroid.xuboyu.com.wanandroid.ui.fragment.MyFragment
+import wanandroid.xuboyu.com.wanandroid.ui.fragment.TypeFragment
 
 class MainActivity : BaseActivity() {
 
     private var lastTime: Long = 0
     private var homeFragment: HomeFragment? = null
     private var myFragment: MyFragment? = null
+    private var typeFragment: TypeFragment? = null
     private var currentIndex = 0
+
+    private val fragmentManager by lazy {
+        supportFragmentManager
+    }
 
     override fun setLayoutId(): Int = R.layout.activity_main
 
@@ -33,7 +36,7 @@ class MainActivity : BaseActivity() {
     }
 
     /**
-     * 退出
+     * 返回键-退出
      */
     override fun onBackPressed() {
         val currentTime = System.currentTimeMillis()
@@ -62,11 +65,10 @@ class MainActivity : BaseActivity() {
         super.onAttachFragment(fragment)
         when(fragment) {
             is HomeFragment -> homeFragment ?: let { homeFragment = fragment }
+            is TypeFragment -> typeFragment ?: let { typeFragment = fragment }
             is MyFragment -> myFragment ?: let { myFragment = fragment }
         }
     }
-
-
 
     /**
      * 显示对应Fragment
@@ -79,18 +81,12 @@ class MainActivity : BaseActivity() {
                     add(R.id.content, it)
                 }
             }
-//            typeFragment ?: let {
-//                TypeFragment().let {
-//                    typeFragment = it
-//                    add(R.id.content, it)
-//                }
-//            }
-//            commonUseFragment ?: let {
-//                CommonUseFragment().let {
-//                    commonUseFragment = it
-//                    add(R.id.content, it)
-//                }
-//            }
+            typeFragment ?: let {
+                TypeFragment().let {
+                    typeFragment = it
+                    add(R.id.content, it)
+                }
+            }
             myFragment ?: let {
                 MyFragment().let {
                     myFragment = it
@@ -106,10 +102,10 @@ class MainActivity : BaseActivity() {
                     }
                 }
                 R.id.navigation_type -> {
-//                    toolbar.title = getString(R.string.title_dashboard)
-//                    typeFragment?.let {
-//                        this.show(it)
-//                    }
+                    toolbar.title = getString(R.string.title_system)
+                    typeFragment?.let {
+                        this.show(it)
+                    }
                 }
                 R.id.navigation_my -> {
                     toolbar.title = getString(R.string.title_my)
@@ -124,13 +120,13 @@ class MainActivity : BaseActivity() {
     /**
      * 隐藏所有fragment
      */
-    private fun hideFragment(transaction: android.app.FragmentTransaction) {
+    private fun hideFragment(transaction: FragmentTransaction) {
         homeFragment?.let {
             transaction.hide(it)
         }
-//        typeFragment?.let {
-//            transaction.hide(it)
-//        }
+        typeFragment?.let {
+            transaction.hide(it)
+        }
         myFragment?.let {
             transaction.hide(it)
         }
@@ -145,22 +141,19 @@ class MainActivity : BaseActivity() {
                 return@OnNavigationItemSelectedListener when (item.itemId) {
                     R.id.navigation_home -> {
                         if (currentIndex == R.id.navigation_home) {
-//                            homeFragment?.smoothScrollToPosition()
+                            homeFragment?.smoothScrollToPosition()
                         }
                         currentIndex = R.id.navigation_home
                         true
                     }
                     R.id.navigation_type -> {
-//                        if (currentIndex == R.id.navigation_type) {
-//                            typeFragment?.smoothScrollToPosition()
-//                        }
-//                        currentIndex = R.id.navigation_type
+                        if (currentIndex == R.id.navigation_type) {
+                            typeFragment?.smoothScrollToPosition()
+                        }
+                        currentIndex = R.id.navigation_type
                         true
                     }
                     R.id.navigation_my -> {
-                        if(currentIndex == R.id.navigation_my) {
-//                            myFragment?.smoothScrollToPosition()
-                        }
                         currentIndex = R.id.navigation_my
                         true
                     }

@@ -2,6 +2,7 @@ package wanandroid.xuboyu.com.wanandroid.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.BoringLayout
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
@@ -43,6 +44,7 @@ class ContentActivity: BaseActivity(), CollectArticleView {
     private var userId: Int = 2 // 2为官方userid -1为其他
     private var id: Int = 0
     private var collect: Boolean = false // 默认没收藏
+    private var banner: Boolean = true // 默认轮播图
 
     override fun setLayoutId(): Int = R.layout.activity_content
 
@@ -66,6 +68,7 @@ class ContentActivity: BaseActivity(), CollectArticleView {
             shareUrl = it.getString(Constant.CONTENT_URL_KEY)
             userId = it.getInt(Constant.CONTENT_USER_ID, 2)
             collect = it.getBoolean(Constant.CONTENT_IS_COLLECT, false)
+            banner = it.getBoolean("banner",true)
             agentWeb = shareUrl.getAgentWeb(
                     this,
                     webContent,
@@ -109,16 +112,20 @@ class ContentActivity: BaseActivity(), CollectArticleView {
 
             //收藏
             R.id.menuLike -> {
-                if (isLogin) {
-                    if (userId == 2) {
-                        //站内文章
-                        collectArticlePresenter.collectArticle(id, !collect, true, shareTitle, author, shareUrl)
+                if (!banner) {
+                    if (isLogin) {
+                        if (userId == 2) {
+                            //站内文章
+                            collectArticlePresenter.collectArticle(id, !collect, true, shareTitle, author, shareUrl)
+                        } else {
+                            //站外文章
+                            collectArticlePresenter.collectArticle(id, !collect, false, shareTitle, author, shareUrl)
+                        }
                     } else {
-                        //站外文章
-                        collectArticlePresenter.collectArticle(id, !collect, false, shareTitle, author, shareUrl)
+                        toast(getString(R.string.login_please_login))
                     }
                 } else {
-                    toast(getString(R.string.login_please_login))
+                    toast(getString(R.string.banner_collect))
                 }
             }
         }
@@ -150,7 +157,7 @@ class ContentActivity: BaseActivity(), CollectArticleView {
     }
 
     override fun cancelRequest() {
-
+        collectArticlePresenter.cancelRequest()
     }
 
     override fun collectArticleSuccess(result: HomeListResponse, isAdd: Boolean) {
