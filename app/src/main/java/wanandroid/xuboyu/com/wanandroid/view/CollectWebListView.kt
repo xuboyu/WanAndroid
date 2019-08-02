@@ -1,5 +1,6 @@
 package wanandroid.xuboyu.com.wanandroid.view
 
+import wanandroid.xuboyu.com.wanandroid.bean.ArticleListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.CollectWebListResponse
 
 /**
@@ -25,4 +26,16 @@ interface CollectWebListView {
      * 获取列表长度为0
      */
     fun getCollectWebListZero()
+
+    /**
+     * 删除收藏成功回调
+     * @param result
+     */
+    fun deleteWebSuccess(result: ArticleListResponse)
+
+    /**
+     * 删除失败
+     * @param errorMessage
+     */
+    fun deleteWebFailed(errorMessage: String?)
 }

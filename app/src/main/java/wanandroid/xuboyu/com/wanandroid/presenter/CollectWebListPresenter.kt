@@ -1,5 +1,6 @@
 package wanandroid.xuboyu.com.wanandroid.presenter
 
+import wanandroid.xuboyu.com.wanandroid.bean.ArticleListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.CollectWebListResponse
 
 /**
@@ -27,5 +28,24 @@ interface CollectWebListPresenter {
          * @param errorMessage 失败信息
          */
         fun getCollectWebListFailed(errorMessage: String?)
+    }
+
+    /**
+     * 删除收藏
+     */
+    fun deleteWeb(id: Int)
+
+    interface OnDeleteWebListener {
+        /**
+         * 删除成功
+         * @param result
+         */
+        fun deleteWebSuccess(result: ArticleListResponse)
+
+        /**
+         * 删除失败
+         * @param errorMessage
+         */
+        fun deleteWebFialed(errorMessage: String?)
     }
 }

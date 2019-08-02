@@ -32,10 +32,21 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/webItemArrow"
+        android:id="@+id/delete_web"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/delete_blue"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/go_to_web"
         android:layout_width="12dp"
         android:layout_height="24dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        app:srcCompat="@drawable/go" />
+        app:srcCompat="@drawable/go"
+        android:visibility="visible"/>
+
 </RelativeLayout>

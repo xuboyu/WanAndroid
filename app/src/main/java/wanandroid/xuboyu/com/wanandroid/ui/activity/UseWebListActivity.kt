@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
+import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
-import kotlinx.android.synthetic.main.activity_collect_web.*
+import kotlinx.android.synthetic.main.activity_use_weblist.*
+import kotlinx.android.synthetic.main.web_list_item.*
 import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.adapter.CollectWebListAdapter
+import wanandroid.xuboyu.com.wanandroid.adapter.UseWebListAdapter
 import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
 import wanandroid.xuboyu.com.wanandroid.bean.CollectWebListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.WebData
@@ -27,11 +30,11 @@ class UseWebListActivity : BaseActivity(), UseWebListView {
     private val datas = mutableListOf<WebData>()
 
     private val useWebListPresenter : UseWebListPresenterImpl by lazy {
-        UseWebListPresenterImpl(this)
+        UseWebListPresenterImpl(this,null)
     }
 
-    private val collectWebListAdapter: CollectWebListAdapter by lazy {
-        CollectWebListAdapter(this,datas)
+    private val useWebListAdapter: UseWebListAdapter by lazy {
+        UseWebListAdapter(this,datas)
     }
 
     override fun setLayoutId(): Int = R.layout.activity_use_weblist
@@ -45,7 +48,7 @@ class UseWebListActivity : BaseActivity(), UseWebListView {
         super.onCreate(savedInstanceState)
 
         toolbar.run {
-            title = "收藏网址"
+            title = "常用网址"
             setSupportActionBar(this)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
@@ -57,10 +60,10 @@ class UseWebListActivity : BaseActivity(), UseWebListView {
 
         cv_rv.run {
             layoutManager = LinearLayoutManager(context)
-            adapter = collectWebListAdapter
+            adapter = useWebListAdapter
         }
 
-        collectWebListAdapter.run {
+        useWebListAdapter.run {
             bindToRecyclerView(cv_rv)
             setEmptyView(R.layout.fragment_home_empty)
             onItemClickListener = this@UseWebListActivity.onItemClickListener
@@ -114,7 +117,7 @@ class UseWebListActivity : BaseActivity(), UseWebListView {
 
     override fun getUseWebListSuccess(result: CollectWebListResponse) {
         result.data?.let {
-            collectWebListAdapter.run {
+            useWebListAdapter.run {
                 if (web_swipe.isRefreshing) {
                     replaceData(it)
                 } else {
@@ -129,8 +132,8 @@ class UseWebListActivity : BaseActivity(), UseWebListView {
     }
 
     override fun getUseWebListFailed(errorMessage: String?) {
-        collectWebListAdapter.setEnableLoadMore(false)
-        collectWebListAdapter.loadMoreFail()
+        useWebListAdapter.setEnableLoadMore(false)
+        useWebListAdapter.loadMoreFail()
         errorMessage?.let {
             toast(it)
         } ?: let {

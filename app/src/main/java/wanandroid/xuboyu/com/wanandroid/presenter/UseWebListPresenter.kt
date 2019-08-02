@@ -13,6 +13,9 @@ interface UseWebListPresenter {
      */
     fun getUseWebList()
 
+    /**
+     * 常用网址列表
+     */
     interface OnUseWebListListener {
 
         /**
@@ -26,5 +29,27 @@ interface UseWebListPresenter {
          * @param errorMessage 失败信息
          */
         fun getUseWebListFailed(errorMessage: String?)
+    }
+
+    /**
+     * 收藏网址
+     */
+    fun collectWeb(name: String, link: String)
+
+    /**
+     * 收藏网址
+     */
+    interface OnCollectWebListener {
+        /**
+         * 收藏成功回调
+         * @param result CollectWebListResponse
+         */
+        fun collectWebSuccess(result: CollectWebListResponse)
+
+        /**
+         * 收藏失败回调
+         * @param errorMessage
+         */
+        fun collectWebFailed(errorMessage: String?)
     }
 }

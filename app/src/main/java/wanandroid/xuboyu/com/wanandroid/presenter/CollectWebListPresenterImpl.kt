@@ -1,5 +1,6 @@
 package wanandroid.xuboyu.com.wanandroid.presenter
 
+import wanandroid.xuboyu.com.wanandroid.bean.ArticleListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.CollectWebListResponse
 import wanandroid.xuboyu.com.wanandroid.model.CollectWebListModel
 import wanandroid.xuboyu.com.wanandroid.model.CollectWebListModelImpl
@@ -11,9 +12,11 @@ import wanandroid.xuboyu.com.wanandroid.view.CollectWebListView
  * time: 2019/8/1
  **/
 class CollectWebListPresenterImpl (private val collectWebListView: CollectWebListView) :
-        CollectWebListPresenter, CollectWebListPresenter.OnCollectWebListListener {
+        CollectWebListPresenter, CollectWebListPresenter.OnCollectWebListListener,
+        CollectWebListPresenter.OnDeleteWebListener{
 
     private val collectWebListModelImpl: CollectWebListModel = CollectWebListModelImpl()
+
 
     /**
      * 调用访问获取数据
@@ -41,6 +44,22 @@ class CollectWebListPresenterImpl (private val collectWebListView: CollectWebLis
      */
     override fun getCollectWebListFailed(errorMessage: String?) {
         collectWebListView.getCollectWebListFailed(errorMessage)
+    }
+
+    override fun deleteWeb(id: Int) {
+        collectWebListModelImpl.deleteWeb(this,id)
+    }
+
+    override fun deleteWebSuccess(result: ArticleListResponse) {
+        if (result.errorCode != 0) {
+            collectWebListView.deleteWebFailed(result.errorMsg)
+            return
+        }
+        collectWebListView.deleteWebSuccess(result)
+    }
+
+    override fun deleteWebFialed(errorMessage: String?) {
+        collectWebListView.deleteWebFailed(errorMessage)
     }
 
     /**

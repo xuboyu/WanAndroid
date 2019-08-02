@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
+import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import kotlinx.android.synthetic.main.activity_collect_web.*
+import kotlinx.android.synthetic.main.web_list_item.*
 import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.adapter.CollectWebListAdapter
 import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
+import wanandroid.xuboyu.com.wanandroid.bean.ArticleListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.CollectWebListResponse
 import wanandroid.xuboyu.com.wanandroid.bean.WebData
 import wanandroid.xuboyu.com.wanandroid.common.Constant
@@ -68,6 +71,7 @@ class CollectWebListActivity : BaseActivity(), CollectWebListView {
             bindToRecyclerView(cv_rv)
             setEmptyView(R.layout.fragment_home_empty)
             onItemClickListener = this@CollectWebListActivity.onItemClickListener
+            onItemChildClickListener = this@CollectWebListActivity.onItemChildClickListener
         }
 
         collectWebListPresenter.getCollectWebList()
@@ -115,6 +119,15 @@ class CollectWebListActivity : BaseActivity(), CollectWebListView {
         toast(getString(R.string.get_data_zero))
     }
 
+    override fun deleteWebSuccess(result: ArticleListResponse) {
+        refreshData()
+        toast(getString(R.string.unCollect_success))
+    }
+
+    override fun deleteWebFailed(errorMessage: String?) {
+        toast(getString(R.string.unCollect_fail))
+    }
+
     /**
      * refresh 数据刷新
      */
@@ -139,6 +152,20 @@ class CollectWebListActivity : BaseActivity(), CollectWebListView {
                 this.putExtra(Constant.WEB_NAME,datas[position].name)
                 this.putExtra(Constant.WEB_LINK,datas[position].link)
                 startActivity(this)
+            }
+        }
+    }
+
+    /**
+     * onItemChildClickListener
+     */
+    private val onItemChildClickListener = BaseQuickAdapter.OnItemChildClickListener { _, view, position ->
+        if (datas.size != 0) {
+            val data = datas[position]
+            when (view.id) {
+                R.id.delete_web -> {
+                    collectWebListPresenter.deleteWeb(data.id)
+                }
             }
         }
     }

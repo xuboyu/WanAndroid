@@ -15,7 +15,13 @@ interface CollectWebListModel {
     fun getCollectWebList(onCollectWebListListener: CollectWebListPresenter.OnCollectWebListListener)
 
     /**
+     * 删除接口调用
+     */
+    fun deleteWeb(onDeleteWebListener: CollectWebListPresenter.OnDeleteWebListener, id: Int)
+
+    /**
      * 取消请求
      */
     fun cancelCollectWebListRequest()
+
 }

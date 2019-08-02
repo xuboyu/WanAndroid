@@ -122,4 +122,27 @@ interface RetrofitService {
      */
     @GET(Constant.WEB_LIST)
     fun getUseWebList(): Deferred<CollectWebListResponse>
+
+    /**
+     * 收藏网址
+     * @param name 网址名
+     * @param link 网址链接
+     */
+    @POST(Constant.COLLECT_WEB)
+    @FormUrlEncoded
+    fun collectWeb(
+            @Field("name") name: String,
+            @Field("link") link: String
+    ): Deferred<CollectWebListResponse>
+
+    /**
+     * 删除收藏网址
+     * @param id 网址id
+     */
+    @POST(Constant.DELETE_WEB)
+    @FormUrlEncoded
+    fun deleteWeb(
+            @Field("id") id: Int
+    ): Deferred<ArticleListResponse>
+
 }

@@ -1,7 +1,10 @@
 package wanandroid.xuboyu.com.wanandroid.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.LinearLayout
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.ChromeClientCallbackManager
@@ -9,25 +12,33 @@ import kotlinx.android.synthetic.main.activity_content.*
 import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
 import wanandroid.xuboyu.com.wanandroid.base.Preference
+import wanandroid.xuboyu.com.wanandroid.bean.CollectWebListResponse
 import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.getAgentWeb
+import wanandroid.xuboyu.com.wanandroid.presenter.CollectWebListPresenterImpl
+import wanandroid.xuboyu.com.wanandroid.presenter.UseWebListPresenterImpl
+import wanandroid.xuboyu.com.wanandroid.toast
+import wanandroid.xuboyu.com.wanandroid.view.CollectWebView
 
 /**
  * use：网址打开界面
  * author: XuBoYu
  * time: 2019/8/1
  **/
-class WebContentActivity: BaseActivity() {
+class WebContentActivity: BaseActivity(), CollectWebView {
 
     //获取登录状态
     private val isLogin: Boolean by Preference(Constant.LOGIN_KEY, false)
 
+    private val useWebListPresenterImpl: UseWebListPresenterImpl by lazy {
+        UseWebListPresenterImpl(null,this)
+    }
     private lateinit var agentWeb: AgentWeb
     private lateinit var name: String
     private lateinit var link: String
 
     override fun cancelRequest() {
-
+        useWebListPresenterImpl.cancelRequest()
     }
 
     override fun setLayoutId(): Int = R.layout.activity_content
@@ -58,6 +69,50 @@ class WebContentActivity: BaseActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_content, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+
+            //分享
+            R.id.menuShare -> {
+                Intent().run {
+                    action = Intent.ACTION_SEND
+                    putExtra(
+                            Intent.EXTRA_TEXT,
+                            getString(
+                                    R.string.share_article_url,
+                                    getString(R.string.app_name),
+                                    name,
+                                    link
+                            )
+                    )
+                    type = Constant.CONTENT_SHARE_TYPE
+                    startActivity(Intent.createChooser(this, getString(R.string.share_title)))
+                }
+                return true
+            }
+
+            //收藏网址
+            R.id.menuLike -> {
+                if (isLogin) {
+                    useWebListPresenterImpl.collectWeb(name,link)
+                } else {
+                    toast(getString(R.string.login_please_login))
+                }
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onPause() {
         super.onPause()
         agentWeb.webLifeCycle.onPause()
@@ -80,6 +135,14 @@ class WebContentActivity: BaseActivity() {
             finish()
             super.onKeyDown(keyCode, event)
         }
+    }
+
+    override fun getCollectWebSuccess(result: CollectWebListResponse) {
+        toast(getString(R.string.collect_success))
+    }
+
+    override fun getCollectWebFailed(errorMessage: String?) {
+        toast(getString(R.string.collect_fail))
     }
 
     /**
