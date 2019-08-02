@@ -3,7 +3,7 @@ package wanandroid.xuboyu.com.wanandroid.bean
 import java.io.Serializable
 
 /**
- * use：
+ * use：知识体系bean
  * author: XuBoYu
  * time: 2019/7/30
  **/

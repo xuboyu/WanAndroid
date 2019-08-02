@@ -27,7 +27,7 @@ interface TypeArticlePresenter {
 
         /**
          * 获取失败
-         * @param errorMessage error message
+         * @param errorMessage 失败信息
          */
         fun getTypeArticleListFailed(errorMessage: String?)
     }

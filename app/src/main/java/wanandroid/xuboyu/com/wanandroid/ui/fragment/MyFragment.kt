@@ -14,6 +14,7 @@ import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.base.BaseFragment
 import wanandroid.xuboyu.com.wanandroid.base.Preference
 import wanandroid.xuboyu.com.wanandroid.common.Constant
+import wanandroid.xuboyu.com.wanandroid.ui.activity.CollectWebListActivity
 import wanandroid.xuboyu.com.wanandroid.ui.activity.LoginActivity
 
 /**
@@ -95,7 +96,9 @@ class MyFragment: BaseFragment() {
 
             R.id.c_web_r -> {
                 if (isLogin) {
-                    showToast(isLogin.toString())
+                    Intent(this.activity,CollectWebListActivity::class.java).run {
+                        startActivity(this)
+                    }
                 } else {
                     showToast("请先登录")
                 }

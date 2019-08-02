@@ -11,14 +11,14 @@ import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
 import wanandroid.xuboyu.com.wanandroid.toast
 import wanandroid.xuboyu.com.wanandroid.ui.fragment.HomeFragment
 import wanandroid.xuboyu.com.wanandroid.ui.fragment.MyFragment
-import wanandroid.xuboyu.com.wanandroid.ui.fragment.TypeFragment
+import wanandroid.xuboyu.com.wanandroid.ui.fragment.OtherFragment
 
 class MainActivity : BaseActivity() {
 
     private var lastTime: Long = 0
     private var homeFragment: HomeFragment? = null
     private var myFragment: MyFragment? = null
-    private var typeFragment: TypeFragment? = null
+    private var otherFragment: OtherFragment? = null
     private var currentIndex = 0
 
     private val fragmentManager by lazy {
@@ -28,6 +28,7 @@ class MainActivity : BaseActivity() {
     override fun setLayoutId(): Int = R.layout.activity_main
 
     override fun cancelRequest() {
+
     }
 
     override fun initImmersionBar() {
@@ -65,7 +66,7 @@ class MainActivity : BaseActivity() {
         super.onAttachFragment(fragment)
         when(fragment) {
             is HomeFragment -> homeFragment ?: let { homeFragment = fragment }
-            is TypeFragment -> typeFragment ?: let { typeFragment = fragment }
+            is OtherFragment -> otherFragment ?: let { otherFragment = fragment}
             is MyFragment -> myFragment ?: let { myFragment = fragment }
         }
     }
@@ -81,9 +82,9 @@ class MainActivity : BaseActivity() {
                     add(R.id.content, it)
                 }
             }
-            typeFragment ?: let {
-                TypeFragment().let {
-                    typeFragment = it
+            otherFragment ?: let {
+                OtherFragment().let {
+                    otherFragment = it
                     add(R.id.content, it)
                 }
             }
@@ -103,7 +104,7 @@ class MainActivity : BaseActivity() {
                 }
                 R.id.navigation_type -> {
                     toolbar.title = getString(R.string.title_system)
-                    typeFragment?.let {
+                    otherFragment?.let {
                         this.show(it)
                     }
                 }
@@ -124,7 +125,7 @@ class MainActivity : BaseActivity() {
         homeFragment?.let {
             transaction.hide(it)
         }
-        typeFragment?.let {
+        otherFragment?.let {
             transaction.hide(it)
         }
         myFragment?.let {
@@ -147,9 +148,6 @@ class MainActivity : BaseActivity() {
                         true
                     }
                     R.id.navigation_type -> {
-                        if (currentIndex == R.id.navigation_type) {
-                            typeFragment?.smoothScrollToPosition()
-                        }
                         currentIndex = R.id.navigation_type
                         true
                     }

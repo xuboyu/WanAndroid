@@ -23,6 +23,7 @@
     <dimen name="banner">180dp</dimen>
     <dimen name="h40">40dp</dimen>
     <dimen name="h50">50dp</dimen>
+    <dimen name="h180">180dp</dimen>
 
     <!-- textview -->
     <dimen name="sp12">12sp</dimen>
@@ -34,5 +35,6 @@
     <dimen name="my_view">25dp</dimen>
     <dimen name="home_ls">20dp</dimen>
     <dimen name="item_user">25dp</dimen>
+    <dimen name="tx_img">60dp</dimen>
 
 </resources>

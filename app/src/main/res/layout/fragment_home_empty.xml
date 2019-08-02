@@ -17,13 +17,13 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/data_null"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/data_null"
-            android:layout_below="@+id/empty_img"
-            android:layout_marginTop="@dimen/mt5"
-            android:layout_centerHorizontal="true"/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/data_null"-->
+            <!--android:layout_below="@+id/empty_img"-->
+            <!--android:layout_marginTop="@dimen/mt5"-->
+            <!--android:layout_centerHorizontal="true"/>-->
 
     </RelativeLayout>
 

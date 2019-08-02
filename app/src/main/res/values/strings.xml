@@ -30,7 +30,7 @@
     
     <!-- 首页界面文字 -->
     <string name="title_home">首页</string>
-    <string name="title_system">知识体系</string>
+    <string name="title_system">广场</string>
     <string name="title_my">个人中心</string>
     <string name="double_click_exit">再按一次退出程序</string>
     <string name="collect_success">收藏成功</string>
@@ -44,6 +44,12 @@
     <string name="get_data_zero">获取数据列表为0</string>
     <string name="type_null">类型为空</string>
     <string name="data_null">空空如也</string>
+    
+    <!-- 其他模块界面 -->
+    <string name="gzh">公众号推荐</string>
+    <string name="zstx">知识体系</string>
+    <string name="cywz">常用网址</string>
+    <string name="xmtj">项目推荐</string>
     
     <!-- 我的界面文字 -->
     <string name="not_login">点击登录</string>

@@ -104,6 +104,30 @@ object Constant {
      */
     const val TREE_TYPE_LIST = "/article/list/{page}/json"
 
+    /**
+     * 收藏网址列表
+     */
+    const val COLLECT_WEB_LIST = "/lg/collect/usertools/json"
+
+    /**
+     * 常用网址列表
+     */
+    const val WEB_LIST = "/friend/json"
+
+    /**
+     * 收藏网址
+     */
+    const val COLLECT_WEB = "/lg/collect/addtool/json"
+
+    /**
+     * 删除网址
+     */
+    const val DELETE_WEB = "/lg/collect/deletetool/json"
+
+    /**
+     * 搜索
+     */
+    const val SEARCH = "/article/query/{id}/json"
 
     /* ================================== END ==================================*/
 
@@ -167,6 +191,14 @@ object Constant {
      * childrenData key
      */
     const val CONTENT_CHILDREN_DATA_KEY = "childrenData"
+    /**
+     * 网址名
+     */
+    const val WEB_NAME = "name"
+    /**
+     * 网址链接
+     */
+    const val WEB_LINK = "link"
 
     /* ================================== END ==================================*/
 }

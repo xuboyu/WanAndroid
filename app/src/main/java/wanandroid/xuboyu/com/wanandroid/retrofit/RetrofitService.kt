@@ -110,4 +110,16 @@ interface RetrofitService {
             @Path("page") page: Int,
             @Query("cid") cid: Int
     ): Deferred<ArticleListResponse>
+
+    /**
+     * 收藏网址列表
+     */
+    @GET(Constant.COLLECT_WEB_LIST)
+    fun getCollectWebList(): Deferred<CollectWebListResponse>
+
+    /**
+     * 常用网址
+     */
+    @GET(Constant.WEB_LIST)
+    fun getUseWebList(): Deferred<CollectWebListResponse>
 }
