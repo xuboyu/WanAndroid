@@ -4,7 +4,8 @@
 * `Api`:[`WanAndroid`开放`API`](http://wanandroid.com/blog/show/2)
 
 ### 运行截图
-![](img/main.jpg) |![](sources/imgs/Screenshot_blog_top.png) | ![](sources/imgs/Screenshot_search.png) 
+![](img/main.jpg) |![](img/gc.jpg) | ![](img/my.jpg) 
 :-------------------------:|:-------------------------:|:-------------------------:
-![](sources/imgs/Screenshot_project.png)  |  ![](sources/imgs/Screenshot_wechat.png) |  ![](sources/imgs/Screenshot_wechat_search.png)
-![](sources/imgs/Screenshot_system.png)  |  ![](sources/imgs/Screenshot_mine.png) |  ![](sources/imgs/Screenshot_login.png)
+![](img/bw.jpg)  |  ![](img/w.jpg) |  ![](img/ls.jpg)
+![](img/ws.jpg)  |  ![](img/tl.jpg) |  ![](img/t1.jpg)
+![](img/t2.jpg)  |  ![](img/uw.jpg) |  ![](img/muw.jpg)
