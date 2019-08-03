@@ -5,7 +5,6 @@
 
 ### 代码结构
 **Kotlin + MVP + Retrofit2**
-- [Kotlin](https://github.com/JetBrains/kotlin)
 - [Retrofit2](https://github.com/square/retrofit)
 - [鸿神的Flowlayout](https://github.com/hongyangAndroid/FlowLayout)
 - [BRVAH](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
@@ -33,7 +32,7 @@
 ![](img/t2.jpg)  |  ![](img/uw.jpg) |  ![](img/muw.jpg)
 ![](img/out.jpg)  |  ![](img/in.jpg) |  ![](img/re.jpg)
 
-### BUG问题
-#### 当前版本在收藏常用网址的时候调用下面这个接口会出现因为GSON解析失败提示“收藏失败”，但实际上收藏成功的问题，可考虑使用id拼接的接口去执行收藏的操作
+### 问题Tip
+#### 当前版本在收藏常用网址的时候调用下面这个接口会由于GSON解析失败提示“收藏失败”，但实际上收藏成功的问题，可考虑使用id拼接的接口去执行收藏的操作
 #### api接口
 ![](img/api.png)
