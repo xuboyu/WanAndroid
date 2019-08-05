@@ -91,8 +91,20 @@ object Constant {
 
     /**
      * 取消收藏文章
+     * 首页文章列表调用
      */
     const val REMOVE_COLLECT = "/lg/uncollect_originId/{id}/json"
+
+    /**
+     * 取消收藏文章
+     * 个人收藏列表调用
+     */
+    const val REMOVE_MY_COLLECT = "/lg/uncollect/{id}/json"
+
+    /**
+     * 获取个人收藏文章列表
+     */
+    const val GET_MY_COLLECT = "/lg/collect/list/{page}/json"
 
     /**
      * 知识体系

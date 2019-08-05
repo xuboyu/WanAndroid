@@ -120,7 +120,6 @@ class CollectWebListActivity : BaseActivity(), CollectWebListView {
     }
 
     override fun deleteWebSuccess(result: ArticleListResponse) {
-        refreshData()
         toast(getString(R.string.unCollect_success))
     }
 
@@ -165,6 +164,7 @@ class CollectWebListActivity : BaseActivity(), CollectWebListView {
             when (view.id) {
                 R.id.delete_web -> {
                     collectWebListPresenter.deleteWeb(data.id)
+                    collectWebListAdapter.remove(position)
                 }
             }
         }

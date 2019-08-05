@@ -40,8 +40,7 @@
             android:layout_height="match_parent"
             android:scrollbarSize="@dimen/bar"
             android:scrollbars="vertical"
-            tools:listitem="@layout/web_list_item"
-            android:layout_marginTop="@dimen/mt10">
+            tools:listitem="@layout/web_list_item">
 
         </android.support.v7.widget.RecyclerView>
 

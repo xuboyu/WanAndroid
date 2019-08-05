@@ -7,44 +7,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    tools:context=".ui.activity.CollectWebListActivity">
 
-    <RelativeLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/h50"
-        android:background="@color/colorPrimary">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <ImageButton
-            android:id="@+id/back"
-            android:layout_width="@dimen/item_user"
-            android:layout_height="@dimen/item_user"
-            android:background="@null"
-            android:src="@drawable/back"
-            android:scaleType="fitCenter"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/mt10"/>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            app:contentInsetStartWithNavigation="0dp"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@android:color/white"
+            tools:text="@string/app_name" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="收藏文章"
-            android:textSize="@dimen/sp18"
-            android:textColor="@color/white"
-            android:layout_toEndOf="@+id/back"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/mt10"/>
+    </android.support.design.widget.AppBarLayout>
 
-    </RelativeLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/type_rv"
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbarSize="@dimen/bar"
-        android:scrollbars="vertical"
-        tools:listitem="@layout/home_list_item">
+        android:id="@+id/work_swipe"
+        android:background="@color/view_bg">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cw_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarSize="@dimen/bar"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/home_list_item">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

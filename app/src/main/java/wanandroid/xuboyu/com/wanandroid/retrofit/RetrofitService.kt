@@ -82,7 +82,7 @@ interface RetrofitService {
     ): Deferred<HomeListResponse>
 
     /**
-     * 取消收藏
+     * 取消收藏-首页文章列表
      * @param id 获取文章id
      * @param originId 文章本身id，传-1
      */
@@ -91,6 +91,26 @@ interface RetrofitService {
     fun removeCollect(
             @Path("id") id: Int,
             @Field("originId") originId: Int = -1
+    ): Deferred<HomeListResponse>
+
+    /**
+     * 获取自己收藏的文章列表
+     * @param page page
+     * @return Deferred<HomeListResponse>
+     */
+    @GET(Constant.GET_MY_COLLECT)
+    fun getLikeList(
+            @Path("page") page: Int
+    ): Deferred<HomeListResponse>
+
+    /**
+     * 取消收藏-个人收藏列表
+     */
+    @POST(Constant.REMOVE_MY_COLLECT)
+    @FormUrlEncoded
+    fun removeMyCollect(
+            @Path("id") id: Int,
+            @Field("originId") originId: Int
     ): Deferred<HomeListResponse>
 
     /**

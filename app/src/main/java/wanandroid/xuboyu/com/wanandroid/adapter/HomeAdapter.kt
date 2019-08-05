@@ -24,7 +24,7 @@ class HomeAdapter(val context: Context, datas: MutableList<Datas>) :
             @Suppress("DEPRECATION")
             helper.setText(R.id.item_title, item.title)
                     .setText(R.id.user, item.author)
-                    .setText(R.id.item_kind, item.superChapterName+"/"+item.chapterName)
+                    .setText(R.id.item_kind, if (item.superChapterName == null) item.chapterName else item.superChapterName +"/"+item.chapterName)
                     .addOnClickListener(R.id.item_kind)
                     .setTextColor(R.id.item_kind, context.resources.getColor(R.color.colorPrimary))
                     .linkify(R.id.item_kind)
@@ -32,7 +32,7 @@ class HomeAdapter(val context: Context, datas: MutableList<Datas>) :
                     .setText(R.id.item_like, zan2.roundToInt().toString())
                     .setImageResource(
                             R.id.item_collect,
-                            if (item.collect) R.drawable.like else R.drawable.no_like
+                            if (item.originId != 0 || item.collect) R.drawable.like else R.drawable.no_like
                     )
                     .addOnClickListener(R.id.item_collect)
                     .addOnClickListener(R.id.item_share)
