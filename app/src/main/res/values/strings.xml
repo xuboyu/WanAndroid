@@ -46,9 +46,11 @@
     <string name="data_null">空空如也</string>
     
     <!-- 其他模块界面 -->
+    <string name="gnmk">常用功能模块</string>
+    <string name="rmss">热门搜索词汇</string>
     <string name="gzh">公众号推荐</string>
     <string name="zstx">知识体系</string>
-    <string name="cywz">常用网址</string>
+    <string name="cywz">热门网址</string>
     <string name="xmtj">项目推荐</string>
     
     <!-- 我的界面文字 -->
@@ -64,5 +66,8 @@
     <string name="share_title">分享</string>
     <string name="like_title">收藏</string>
     <string name="share_article_url">%1$s分享【%2$s】：%3$s</string>
+
+    <!-- 搜索界面相关 -->
+    <string name="search_not_empty">搜索关键词不能为空</string>
     
 </resources>

@@ -139,7 +139,12 @@ object Constant {
     /**
      * 搜索
      */
-    const val SEARCH = "/article/query/{id}/json"
+    const val SEARCH = "/article/query/{page}/json"
+
+    /**
+     * 搜索热词
+     */
+    const val SEARCH_HOT = "/hotkey/json"
 
     /* ================================== END ==================================*/
 
@@ -211,6 +216,10 @@ object Constant {
      * 网址链接
      */
     const val WEB_LINK = "link"
+    /**
+     * 搜索关键词
+     */
+    const val SEARCH_KEY = "searchKey"
 
     /* ================================== END ==================================*/
 }

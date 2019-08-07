@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/mode"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gnmk"
+            android:textColor="@color/colorPrimary"
+            android:layout_toEndOf="@+id/img"
+            android:layout_marginStart="@dimen/mt5"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/h180"
-        android:orientation="horizontal">
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="@color/white">
 
         <RelativeLayout
             android:layout_weight="1"
@@ -29,8 +55,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/zstx_img"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/mt10"
-                android:text="@string/zstx"/>
+                android:text="@string/zstx"
+                android:layout_marginTop="@dimen/mt5"
+                android:textSize="@dimen/sp12"/>
             
         </RelativeLayout>
 
@@ -52,17 +79,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cywz_img"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/mt10"
-                android:text="@string/cywz"/>
+                android:text="@string/cywz"
+                android:layout_marginTop="@dimen/mt5"
+                android:textSize="@dimen/sp12"/>
 
         </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/h180"
-        android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_weight="1"
@@ -82,8 +103,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/gzh_img"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/mt10"
-                android:text="@string/gzh"/>
+                android:text="@string/gzh"
+                android:layout_marginTop="@dimen/mt5"
+                android:textSize="@dimen/sp12"/>
 
         </RelativeLayout>
 
@@ -105,11 +127,55 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/xm_img"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/mt10"
-                android:text="@string/xmtj"/>
+                android:text="@string/xmtj"
+                android:layout_marginTop="@dimen/mt5"
+                android:textSize="@dimen/sp12"/>
 
         </RelativeLayout>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/mt10">
+
+        <ImageView
+            android:id="@+id/himg"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/hotsearch"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rmss"
+            android:textColor="@color/colorPrimary"
+            android:layout_toEndOf="@+id/himg"
+            android:layout_marginStart="@dimen/mt5"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:id="@+id/refresh"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:src="@drawable/refresh"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mt10"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/commonRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarSize="@dimen/dp_10"
+        android:scrollbars="vertical"
+        android:layout_marginTop="@dimen/mt10"
+        tools:listitem="@layout/home_list_item"/>
 
 </LinearLayout>

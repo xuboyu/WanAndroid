@@ -440,8 +440,8 @@ class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
      */
     override fun collectArticleFailed(errorMessage: String?, isAdd: Boolean) {
         activity.toast(
-                if (isAdd) activity.getString(R.string.collect_fail, errorMessage)
-                else activity.getString(R.string.unCollect_fail, errorMessage)
+                if (isAdd) activity.getString(R.string.collect_fail)
+                else activity.getString(R.string.unCollect_fail)
         )
     }
 

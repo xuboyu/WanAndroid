@@ -165,4 +165,22 @@ interface RetrofitService {
             @Field("id") id: Int
     ): Deferred<ArticleListResponse>
 
+    /**
+     * 热搜词汇
+     */
+    @GET(Constant.SEARCH_HOT)
+    fun getHotSearch(): Deferred<HotSearchResponse>
+
+    /**
+     * 搜索
+     * @param page 页码
+     * @param k 搜索关键词
+     */
+    @POST(Constant.SEARCH)
+    @FormUrlEncoded
+    fun getSearchList(
+            @Path("page") page: Int,
+            @Field("k") k: String
+    ): Deferred<HomeListResponse>
+
 }

@@ -39,6 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbarSize="@dimen/bar"
+            android:paddingTop="@dimen/dp_10"
+            android:clipToPadding="false"
             android:scrollbars="vertical"
             tools:listitem="@layout/web_list_item">
 

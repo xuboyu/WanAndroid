@@ -117,3 +117,9 @@ fun String.getAgentWeb(activity: Activity, webContent: ViewGroup,
         .createAgentWeb()//
         .ready()
         .go(this)!!
+
+/**
+ * get random color
+ * @return 16777215 is FFFFFF, 0 is 000000
+ */
+fun getRandomColor(): String = "#${Integer.toHexString((Math.random() * 16777215).toInt())}"
