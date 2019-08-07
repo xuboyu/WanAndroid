@@ -220,6 +220,10 @@ object Constant {
      * 搜索关键词
      */
     const val SEARCH_KEY = "searchKey"
+    /**
+     * 是否开始搜索
+     */
+    const val IS_START_SEARCH = "isStartSearch"
 
     /* ================================== END ==================================*/
 }

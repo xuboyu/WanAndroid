@@ -1,13 +1,17 @@
 package wanandroid.xuboyu.com.wanandroid.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
+import android.view.Menu
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 
 import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.base.BaseActivity
+import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.toast
 import wanandroid.xuboyu.com.wanandroid.ui.fragment.HomeFragment
 import wanandroid.xuboyu.com.wanandroid.ui.fragment.MyFragment
@@ -60,6 +64,25 @@ class MainActivity : BaseActivity() {
             title = getString(R.string.title_home)
             setSupportActionBar(this)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_search, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            //收藏网址
+            R.id.menuSearch -> {
+                Intent(this, SearchActivity::class.java).run {
+                    this.putExtra(Constant.SEARCH_KEY, "")
+                    this.putExtra(Constant.IS_START_SEARCH, false)
+                    startActivity(this)
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onAttachFragment(fragment: Fragment?) {

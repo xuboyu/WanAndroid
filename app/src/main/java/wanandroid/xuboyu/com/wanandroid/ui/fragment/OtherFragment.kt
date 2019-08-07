@@ -164,8 +164,7 @@ class OtherFragment : BaseFragment(), OhterFragmentView {
         if (hotTagDatas.size != 0) {
             Intent(activity, SearchActivity::class.java).run {
                 putExtra(Constant.SEARCH_KEY, hotTagDatas[position].name)
-//                putExtra(Constant.CONTENT_TITLE_KEY, hotTagDatas[position].name)
-//                startActivityForResult(this, Constant.MAIN_LIKE_REQUEST_CODE)
+                putExtra(Constant.IS_START_SEARCH, true)
                 startActivity(this)
             }
         }

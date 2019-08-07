@@ -42,6 +42,7 @@ class SearchActivity : BaseActivity(), SearchListView {
     }
 
     private var searchKey: String? = null
+    private var startSearch: Boolean = false
 
     /**
      * adapter
@@ -65,7 +66,7 @@ class SearchActivity : BaseActivity(), SearchListView {
         super.onCreate(savedInstanceState)
         intent.extras?.let {
             searchKey = it.getString(Constant.SEARCH_KEY, "")
-            loge("1",searchKey)
+            startSearch = it.getBoolean(Constant.IS_START_SEARCH, false)
         }
         search_swipe.run {
             setOnRefreshListener(onRefreshListener)
@@ -88,7 +89,9 @@ class SearchActivity : BaseActivity(), SearchListView {
         }
         searchKey?.let {
             sEdit.setText(searchKey)
-            searchPresenter.getSearchList(0, searchKey!!)
+            if (startSearch) {
+                searchPresenter.getSearchList(0, searchKey!!)
+            }
         }
         //控件设置监听
         sBack.setOnClickListener(onClickListener)

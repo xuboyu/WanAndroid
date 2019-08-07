@@ -69,5 +69,6 @@
 
     <!-- 搜索界面相关 -->
     <string name="search_not_empty">搜索关键词不能为空</string>
+    <string name="search_menu">搜索</string>
     
 </resources>
