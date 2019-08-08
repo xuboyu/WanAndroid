@@ -146,6 +146,16 @@ object Constant {
      */
     const val SEARCH_HOT = "/hotkey/json"
 
+    /**
+     * 公众号列表
+     */
+    const val GZH = "/wxarticle/chapters/json"
+
+    /**
+     * 某个公众号文章列表
+     */
+    const val GZHLIST = "/wxarticle/list/{id}/{page}/json"
+
     /* ================================== END ==================================*/
 
     /* ================================== 开关属性设置 ==================================*/
@@ -224,6 +234,14 @@ object Constant {
      * 是否开始搜索
      */
     const val IS_START_SEARCH = "isStartSearch"
+    /**
+     * 公众号作者名
+     */
+    const val GZH_NAME = "name"
+    /**
+     * 公众号id
+     */
+    const val GZH_ID = "id"
 
     /* ================================== END ==================================*/
 }

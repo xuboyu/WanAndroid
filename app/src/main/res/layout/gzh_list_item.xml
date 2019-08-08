@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_10"
+    android:layout_marginStart="@dimen/mt5"
+    android:layout_marginEnd="@dimen/mt5"
+    android:elevation="3dp"
+    android:background="@drawable/item_bg">
+
+    <ImageView
+        android:id="@+id/item_user_img"
+        android:layout_width="@dimen/item_user"
+        android:layout_height="@dimen/item_user"
+        android:src="@drawable/gzh"
+        android:layout_margin="@dimen/ms10"/>
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/item_user_img"
+        android:layout_toEndOf="@+id/item_user_img"
+        android:gravity="bottom"
+        android:text="作者"
+        android:textSize="14sp"/>
+
+    <ImageView
+        android:id="@+id/item_collect"
+        android:layout_width="@dimen/home_ls"
+        android:layout_height="@dimen/home_ls"
+        android:layout_marginTop="@dimen/ms10"
+        android:layout_toStartOf="@+id/item_like"
+        app:srcCompat="@drawable/no_like"/>
+
+    <TextView
+        android:id="@+id/item_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/item_share"
+        android:layout_marginStart="@dimen/mt5"
+        android:layout_marginTop="@dimen/mt10"
+        android:text="99+"
+        android:textSize="10sp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/item_share"
+        android:layout_width="@dimen/home_ls"
+        android:layout_height="@dimen/home_ls"
+        android:layout_margin="@dimen/ms10"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/shared"/>
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/item_user_img"
+        android:text="标题"
+        android:textSize="@dimen/sp16"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/item_kind_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_title"
+        android:layout_margin="@dimen/ms10"
+        android:text="分类:"/>
+
+    <TextView
+        android:id="@+id/item_kind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mt10"
+        android:layout_below="@id/item_title"
+        android:layout_toEndOf="@+id/item_kind_text"
+        android:text="问答/官方"/>
+
+    <TextView
+        android:id="@+id/item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/item_title"
+        android:text="17小时前"
+        android:layout_marginTop="@dimen/mt10"
+        android:layout_marginEnd="@dimen/ms10"/>
+
+</RelativeLayout>

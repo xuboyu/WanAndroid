@@ -18,9 +18,7 @@ import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.inflater
 import wanandroid.xuboyu.com.wanandroid.presenter.OtherFragmentPresenterImpl
 import wanandroid.xuboyu.com.wanandroid.toast
-import wanandroid.xuboyu.com.wanandroid.ui.activity.SearchActivity
-import wanandroid.xuboyu.com.wanandroid.ui.activity.TypeListActivity
-import wanandroid.xuboyu.com.wanandroid.ui.activity.UseWebListActivity
+import wanandroid.xuboyu.com.wanandroid.ui.activity.*
 import wanandroid.xuboyu.com.wanandroid.view.OhterFragmentView
 
 /**
@@ -127,13 +125,17 @@ class OtherFragment : BaseFragment(), OhterFragmentView {
             }
             //公众号推荐按钮
             R.id.gzh_img -> {
-
+                Intent(activity, GzhActivity::class.java).run {
+                    startActivity(this)
+                }
             }
             //项目推荐按钮
             R.id.xm_img -> {
-
+                Intent(activity, ProjectListActivity::class.java).run {
+                    startActivity(this)
+                }
             }
-
+            //热搜刷新按钮
             R.id.refresh -> {
                 otherFragmentPresenter.getHSList()
             }

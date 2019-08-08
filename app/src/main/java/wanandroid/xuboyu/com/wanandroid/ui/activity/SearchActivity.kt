@@ -96,7 +96,23 @@ class SearchActivity : BaseActivity(), SearchListView {
         //控件设置监听
         sBack.setOnClickListener(onClickListener)
         sBtn.setOnClickListener(onClickListener)
-
+        sEdit.setOnEditorActionListener() { v, actionId, event ->
+            if(actionId == EditorInfo.IME_ACTION_SEARCH){
+                if(sEdit.text.toString().equals("")) {
+                    toast(getString(R.string.search_not_empty))
+                } else {
+                    searchPresenter.getSearchList(0, sEdit.text.toString())
+                    search_swipe.isRefreshing = true
+                    searchKey = sEdit.text.toString()
+                    //隐藏键盘
+                    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+                }
+                true
+            } else {
+                false
+            }
+        }
     }
 
     /**

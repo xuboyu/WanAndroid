@@ -183,4 +183,19 @@ interface RetrofitService {
             @Field("k") k: String
     ): Deferred<HomeListResponse>
 
+    /**
+     * 公众号列表
+     */
+    @GET(Constant.GZH)
+    fun getGzh(): Deferred<GzhResponse>
+
+    /**
+     * 获取某个公众号的文章
+     */
+    @GET(Constant.GZHLIST)
+    fun getGzhList(
+            @Path("id") id: Int,
+            @Path("page") page: Int = 0
+    ): Deferred<HomeListResponse>
+
 }
