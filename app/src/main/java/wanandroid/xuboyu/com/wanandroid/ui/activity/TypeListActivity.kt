@@ -45,7 +45,7 @@ class TypeListActivity : BaseActivity(), TypeFragmentView{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         toolbar.run {
-            title = "知识体系"
+            title = getString(R.string.zstx)
             setSupportActionBar(this)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }

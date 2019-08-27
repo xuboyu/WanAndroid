@@ -52,7 +52,7 @@ class CollectWebListActivity : BaseActivity(), CollectWebListView {
         super.onCreate(savedInstanceState)
 
         toolbar.run {
-            title = "收藏网址"
+            title = getString(R.string.c_web_text)
             setSupportActionBar(this)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }

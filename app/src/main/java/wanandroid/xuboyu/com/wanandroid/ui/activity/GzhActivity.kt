@@ -48,7 +48,7 @@ class GzhActivity : BaseActivity(), GzhView {
         super.onCreate(savedInstanceState)
 
         toolbar.run {
-            title = "公众号推荐"
+            title = getString(R.string.gzh)
             setSupportActionBar(this)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }

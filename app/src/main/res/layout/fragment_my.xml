@@ -48,9 +48,10 @@
                 android:id="@+id/todo_view"
                 android:layout_width="@dimen/my_view"
                 android:layout_height="@dimen/my_view"
-                android:src="@drawable/todo"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/ms10"/>
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/ms10"
+                android:layout_marginBottom="13dp"
+                android:src="@drawable/todo" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,7 +77,7 @@
                 android:id="@+id/c_web_view"
                 android:layout_width="@dimen/my_view"
                 android:layout_height="@dimen/my_view"
-                android:src="@drawable/collect_web"
+                android:src="@drawable/c_web"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/ms10"/>
 
@@ -104,7 +105,7 @@
                 android:id="@+id/c_word_text"
                 android:layout_width="@dimen/my_view"
                 android:layout_height="@dimen/my_view"
-                android:src="@drawable/collect_word"
+                android:src="@drawable/c_word"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/ms10"/>
 

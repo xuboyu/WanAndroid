@@ -44,7 +44,7 @@ class CollectWorkListActivity : BaseActivity(), CollectWorkListView {
         super.onCreate(savedInstanceState)
 
         toolbar.run {
-            title = "收藏文章"
+            title = getString(R.string.c_word_text)
             setSupportActionBar(this)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }

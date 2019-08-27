@@ -20,6 +20,8 @@ object Constant {
     const val USERNAME_KEY = "username"
     const val PASSWORD_KEY = "password"
 
+    const val CID = "cid"
+
     /* ================================== END ==================================*/
 
     /* ================================== TIP ==================================*/
@@ -156,6 +158,21 @@ object Constant {
      */
     const val GZHLIST = "/wxarticle/list/{id}/{page}/json"
 
+    /**
+     * 项目分类
+     */
+    const val PROJECT_TYPE = "/project/tree/json"
+
+    /**
+     * 最新项目列表
+     */
+    const val NEW_PROJECT_LIST = "/article/listproject/{page}/json"
+
+    /**
+     * 某个分类下的项目列表
+     */
+    const val SOME_PROJECT_LIST = "/project/list/{page}/json"
+
     /* ================================== END ==================================*/
 
     /* ================================== 开关属性设置 ==================================*/
@@ -183,11 +200,11 @@ object Constant {
     //text/html的意思是将文件的content-type设置为text/html的形式，浏览器在获取到这种文件时会自动调用html的解析器对文件进行相应的处理。
 
     /**
-     * 文章跳转 url
+     * 跳转 url
      */
     const val CONTENT_URL_KEY = "url"
     /**
-     * 文章跳转 title
+     * 跳转 title
      */
     const val CONTENT_TITLE_KEY = "title"
     /**

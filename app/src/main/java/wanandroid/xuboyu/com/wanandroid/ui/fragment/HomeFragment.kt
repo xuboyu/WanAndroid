@@ -26,10 +26,10 @@ import wanandroid.xuboyu.com.wanandroid.bean.Datas
 import wanandroid.xuboyu.com.wanandroid.bean.HomeListResponse
 import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.inflater
+import wanandroid.xuboyu.com.wanandroid.loge
 import wanandroid.xuboyu.com.wanandroid.presenter.HomeFragmentImpl
 import wanandroid.xuboyu.com.wanandroid.toast
 import wanandroid.xuboyu.com.wanandroid.ui.activity.ContentActivity
-import wanandroid.xuboyu.com.wanandroid.ui.activity.LoginActivity
 import wanandroid.xuboyu.com.wanandroid.ui.activity.TypeActivity
 import wanandroid.xuboyu.com.wanandroid.view.CollectArticleView
 import wanandroid.xuboyu.com.wanandroid.view.HomeFragmentView

@@ -198,4 +198,26 @@ interface RetrofitService {
             @Path("page") page: Int = 0
     ): Deferred<HomeListResponse>
 
+    /**
+     * 获取项目分类
+     */
+    @GET(Constant.PROJECT_TYPE)
+    fun getProjectTypeList(): Deferred<ProjectTypeResponse>
+
+    /**
+     * 获取最新项目列表
+     */
+    @GET(Constant.NEW_PROJECT_LIST)
+    fun getNewProjectList(
+            @Path("page") page: Int = 0
+    ): Deferred<ProjectResponse>
+
+    /**
+     * 获取某个分类的项目列表
+     */
+    @GET(Constant.SOME_PROJECT_LIST)
+    fun getTypeProjectList(
+            @Path("page") page: Int = 0,
+            @Query("cid") cid: Int
+    ): Deferred<ProjectResponse>
 }

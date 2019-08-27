@@ -26,7 +26,7 @@
     <string name="register_success">注册成功</string>
     <string name="register_fail">注册失败</string>
     <string name="login_please_login">请先登录</string>
-    <string name="banner_collect">轮播不做收藏~</string>
+    <string name="banner_collect">该模块暂不做收藏~</string>
     
     <!-- 首页界面文字 -->
     <string name="title_home">首页</string>
@@ -51,7 +51,7 @@
     <string name="gzh">公众号推荐</string>
     <string name="zstx">知识体系</string>
     <string name="cywz">热门网址</string>
-    <string name="xmtj">项目推荐</string>
+    <string name="xmtj">最新项目</string>
     
     <!-- 我的界面文字 -->
     <string name="not_login">点击登录</string>

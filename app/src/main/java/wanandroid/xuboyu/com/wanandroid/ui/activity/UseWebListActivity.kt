@@ -48,7 +48,7 @@ class UseWebListActivity : BaseActivity(), UseWebListView {
         super.onCreate(savedInstanceState)
 
         toolbar.run {
-            title = "常用网址"
+            title = getString(R.string.cywz)
             setSupportActionBar(this)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
