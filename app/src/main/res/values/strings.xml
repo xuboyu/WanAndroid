@@ -70,5 +70,22 @@
     <!-- 搜索界面相关 -->
     <string name="search_not_empty">搜索关键词不能为空</string>
     <string name="search_menu">搜索</string>
+
+    <!-- todo相关 -->
+    <string name="add_title">添加待办</string>
+    <string name="todo_title">输入TODO名称，如“完成作业”</string>
+    <string name="todo_content">输入TODO事项，如："\n"1、数学作业"\n"2、语文作业"\n"3、化学作业"\n"4、英语作业"\n"......</string>
+    <string name="todo_time">预定完成时间：</string>
+    <string name="todo_kind">TODO类型</string>
+    <string name="todo_work">工作</string>
+    <string name="todo_play">娱乐</string>
+    <string name="todo_sport">生活</string>
+    <string name="todo_priority">优先级</string>
+    <string name="priority_s">一般</string>
+    <string name="priority_i">重要</string>
+    <string name="title_tip">TODO标题不能为空！</string>
+    <string name="content_tip">TODO内容不能为空！</string>
+    <string name="last_one_type">请至少选择一种类型，默认使用工作类型</string>
+    <string name="last_ont_p">请至少选择一种优先级，默认使用一般优先级</string>
     
 </resources>

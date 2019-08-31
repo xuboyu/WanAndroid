@@ -28,7 +28,7 @@ object RetrofitHelper {
     private const val CONNECT_TIMEOUT = 30L
     private const val READ_TIMEOUT = 10L
 
-    val retrofitService: RetrofitService = RetrofitHelper.getService(Constant.REQUEST_BASE_URL, RetrofitService::class.java)
+    val retrofitService: RetrofitService = getService(Constant.REQUEST_BASE_URL, RetrofitService::class.java)
 
     /**
      * 获取 ServiceApi

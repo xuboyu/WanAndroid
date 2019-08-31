@@ -17,6 +17,7 @@ import wanandroid.xuboyu.com.wanandroid.common.Constant
 import wanandroid.xuboyu.com.wanandroid.ui.activity.CollectWebListActivity
 import wanandroid.xuboyu.com.wanandroid.ui.activity.CollectWorkListActivity
 import wanandroid.xuboyu.com.wanandroid.ui.activity.LoginActivity
+import wanandroid.xuboyu.com.wanandroid.ui.activity.ToDoActivity
 
 /**
  * use：用户界面
@@ -89,7 +90,9 @@ class MyFragment: BaseFragment() {
 
             R.id.todo_r -> {
                 if (isLogin) {
-                    showToast("开发中~")
+                    Intent(this.activity,ToDoActivity::class.java).run {
+                        startActivity(this)
+                    }
                 } else {
                     showToast("请先登录")
                 }

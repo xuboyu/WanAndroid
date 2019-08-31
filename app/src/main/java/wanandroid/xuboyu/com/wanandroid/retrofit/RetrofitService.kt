@@ -220,4 +220,31 @@ interface RetrofitService {
             @Path("page") page: Int = 0,
             @Query("cid") cid: Int
     ): Deferred<ProjectResponse>
+
+    /**
+     * 获取TODO列表
+     */
+    @GET(Constant.TODO_LIST)
+    fun getTodoList(
+            @Path("page") page: Int = 1,
+            @Query("status") status: Int,
+            @Query("type") type: Int,
+            @Query("priority") priority: Int,
+            @Query("orderby") orderby: Int
+    ): Deferred<TodoListResponse>
+
+
+    /**
+     * 新增一条TODO
+     */
+    @POST(Constant.ADD_TODO)
+    @FormUrlEncoded
+    fun addTodo(
+            @Field("title") title: String,
+            @Field("content") content: String,
+            @Field("date") date: String,
+            @Field("type") type: Int,
+            @Field("priority") priority: Int
+    ): Deferred<TodoAddResponse>
+
 }

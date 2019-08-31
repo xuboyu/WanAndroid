@@ -173,6 +173,16 @@ object Constant {
      */
     const val SOME_PROJECT_LIST = "/project/list/{page}/json"
 
+    /**
+     * TODO列表
+     */
+    const val TODO_LIST = "/lg/todo/v2/list/{page}/json"
+
+    /**
+     * 新增一条TODO
+     */
+    const val ADD_TODO = "/lg/todo/add/json"
+
     /* ================================== END ==================================*/
 
     /* ================================== 开关属性设置 ==================================*/

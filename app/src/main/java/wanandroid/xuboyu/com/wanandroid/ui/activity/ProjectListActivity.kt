@@ -244,7 +244,7 @@ class ProjectListActivity : BaseActivity(), ProjectListView {
                     loadMoreEnd()
                     return@let
                 }
-                Log.e("111",""+result.data?.datas?.size)
+
                 if (result.data?.datas?.size!! >= 15) {
                     setEnableLoadMore(true)
                 } else if (result.data?.datas?.size!! < 15) {

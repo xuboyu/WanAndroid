@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/todo_dialog_bg" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <ImageView
+            android:id="@+id/title_view"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:src="@drawable/todo_title"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <EditText
+            android:id="@+id/title_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/title_view"
+            android:layout_marginStart="@dimen/mt10"
+            android:layout_toStartOf="@+id/add_todo"
+            android:layout_marginEnd="@dimen/mt10"
+            android:background="@null"
+            android:hint="@string/todo_title"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/add_todo_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="9dp"
+            android:text="ADD"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp" >
+
+        <ImageView
+            android:id="@+id/content_view"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="@dimen/mt10"
+            android:src="@drawable/todo_edit"
+            android:layout_marginStart="11dp"/>
+
+        <EditText
+            android:id="@+id/content_edit"
+            android:layout_toEndOf="@+id/content_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:padding="@dimen/mt10"
+            android:hint="@string/todo_content"
+            android:textSize="15sp"
+            android:gravity="left|top"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/todo_data_view"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/todo_time"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="11dp"/>
+
+        <TextView
+            android:id="@+id/todo_time_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/todo_data_view"
+            android:text="@string/todo_time"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <TextView
+            android:id="@+id/todo_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/todo_time_view"
+            android:layout_marginStart="@dimen/mt10"
+            android:layout_centerVertical="true"
+            android:text="2019-8-27"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:id="@+id/todo_kind_view"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/todo_kind"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/todo_kind_view"
+            android:text="@string/todo_kind"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:layout_marginStart="@dimen/mt10"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <CheckBox
+            android:id="@+id/todo_work"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"
+            android:checked="true"/>
+
+        <ImageView
+            android:id="@+id/work_view"
+            android:layout_width="25dp"
+            android:layout_height="25dp" 
+            android:layout_marginStart="@dimen/mt10"
+            android:src="@drawable/work"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/todo_work"/>
+        
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_work"
+            android:layout_toEndOf="@id/work_view"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <CheckBox
+            android:id="@+id/todo_sport"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/t1"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <ImageView
+            android:id="@+id/sport_view"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="@dimen/mt10"
+            android:src="@drawable/sport"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/todo_sport"/>
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_sport"
+            android:layout_toEndOf="@id/sport_view"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <CheckBox
+            android:id="@+id/todo_play"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/t2"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <ImageView
+            android:id="@+id/play_view"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="@dimen/mt10"
+            android:src="@drawable/play"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/todo_play"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_play"
+            android:layout_toEndOf="@id/play_view"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/todo_priority_view"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/priority"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <TextView
+            android:id="@+id/t3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/todo_priority_view"
+            android:text="@string/todo_priority"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <CheckBox
+            android:id="@+id/priority_s"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/t3"
+            android:layout_marginStart="@dimen/mt10"
+            android:checked="true"/>
+
+        <TextView
+            android:id="@+id/t4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/priority_s"
+            android:text="@string/priority_s"
+            android:layout_marginStart="@dimen/mt10"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <CheckBox
+            android:id="@+id/priority_i"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_toEndOf="@+id/t4"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"
+            android:layout_toEndOf="@+id/priority_i"
+            android:text="@string/priority_i"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary" />
+
+</LinearLayout>
