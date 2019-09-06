@@ -14,10 +14,7 @@ import wanandroid.xuboyu.com.wanandroid.R
 import wanandroid.xuboyu.com.wanandroid.base.BaseFragment
 import wanandroid.xuboyu.com.wanandroid.base.Preference
 import wanandroid.xuboyu.com.wanandroid.common.Constant
-import wanandroid.xuboyu.com.wanandroid.ui.activity.CollectWebListActivity
-import wanandroid.xuboyu.com.wanandroid.ui.activity.CollectWorkListActivity
-import wanandroid.xuboyu.com.wanandroid.ui.activity.LoginActivity
-import wanandroid.xuboyu.com.wanandroid.ui.activity.ToDoActivity
+import wanandroid.xuboyu.com.wanandroid.ui.activity.*
 
 /**
  * use：用户界面
@@ -90,7 +87,7 @@ class MyFragment: BaseFragment() {
 
             R.id.todo_r -> {
                 if (isLogin) {
-                    Intent(this.activity,ToDoActivity::class.java).run {
+                    Intent(this.activity,TodoActivity::class.java).run {
                         startActivity(this)
                     }
                 } else {

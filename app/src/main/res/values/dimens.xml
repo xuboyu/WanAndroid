@@ -37,5 +37,8 @@
     <dimen name="home_ls">20dp</dimen>
     <dimen name="item_user">25dp</dimen>
     <dimen name="tx_img">50dp</dimen>
-
+    
+    <!-- item head -->
+    <dimen name="head_top">32dp</dimen>
+    <dimen name="head_top_d">10dp</dimen>
 </resources>

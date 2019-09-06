@@ -3,11 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="140dp"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="40dp">
 
         <ImageView
             android:id="@+id/item_type"
@@ -25,45 +26,34 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/mt10"
             android:layout_marginEnd="@dimen/mt10"
-            android:layout_toStartOf="@+id/item_i"
             android:text="测试"
             android:textSize="16sp"
             android:textColor="@color/colorPrimary"/>
 
-        <ImageView
-            android:id="@+id/item_i"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/mt10"
-            android:layout_toStartOf="@+id/item_i_text"
-            android:src="@drawable/important"/>
-
-        <TextView
-            android:id="@+id/item_i_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+        <ImageButton
+            android:id="@+id/delete_todo"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/mt10"
-            android:text="重要"
-            android:textSize="16sp"
-            android:textColor="@color/colorAccent"/>
+            android:background="@drawable/delete_black"/>
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="30dp">
 
         <TextView
-            android:id="@+id/item_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:maxLines="2"
-            android:text="测试内容"
-            android:textSize="14sp"/>
+            android:id="@+id/todo_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"
+            android:text="优先级：一般"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"/>
 
     </RelativeLayout>
 
@@ -72,23 +62,15 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/item_data_tip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/mt10"
-            android:text="完成时间："
-            android:textSize="14sp"
-            android:textColor="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/item_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/item_data_tip"
-            android:layout_centerVertical="true"
-            android:text="2019-8-30"
-            android:textColor="@color/colorPrimary"
+            android:id="@+id/item_content"
+            android:layout_toStartOf="@+id/update_status_todo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:maxLines="3"
+            android:text="测试内容"
             android:textSize="14sp"/>
 
     </RelativeLayout>

@@ -1,7 +1,6 @@
 package wanandroid.xuboyu.com.wanandroid.retrofit
 
 import kotlinx.coroutines.experimental.Deferred
-import retrofit2.Call
 import retrofit2.http.*
 import wanandroid.xuboyu.com.wanandroid.bean.*
 import wanandroid.xuboyu.com.wanandroid.common.Constant
@@ -223,6 +222,7 @@ interface RetrofitService {
 
     /**
      * 获取TODO列表
+     * 全部条件调用
      */
     @GET(Constant.TODO_LIST)
     fun getTodoList(
@@ -231,6 +231,16 @@ interface RetrofitService {
             @Query("type") type: Int,
             @Query("priority") priority: Int,
             @Query("orderby") orderby: Int
+    ): Deferred<TodoListResponse>
+
+    /**
+     * 获取TODO列表
+     * 全部条件调用
+     */
+    @GET(Constant.TODO_LIST)
+    fun getTodoListDefalut(
+            @Path("page") page: Int = 1,
+            @Query("status") status: Int
     ): Deferred<TodoListResponse>
 
 
@@ -246,5 +256,39 @@ interface RetrofitService {
             @Field("type") type: Int,
             @Field("priority") priority: Int
     ): Deferred<TodoAddResponse>
+
+    /**
+     * 更新一条TODO
+     */
+    @POST(Constant.UPDATE_TODO)
+    @FormUrlEncoded
+    fun updateTodo(
+            @Path("id") id: Int,
+            @Field("title") title: String,
+            @Field("content") content: String,
+            @Field("date") date: String,
+            @Field("type") type: Int,
+            @Field("priority") priority: Int
+    ): Deferred<BaseTodoResponse>
+
+    /**
+     * 仅更新TODO状态
+     * 只会变更status，未完成->已经完成 or 已经完成->未完成
+     */
+    @POST(Constant.UPDATE_STATUE_TODO)
+    @FormUrlEncoded
+    fun updateStatusTodo(
+            @Path("id") id: Int,
+            @Field("status") status: Int
+    ): Deferred<BaseTodoResponse>
+
+    /**
+     * 删除一条TODO
+     */
+    @POST(Constant.DELETE_TODO)
+    fun deleteTodo(
+            @Path("id") id: Int
+    ): Deferred<BaseTodoResponse>
+
 
 }

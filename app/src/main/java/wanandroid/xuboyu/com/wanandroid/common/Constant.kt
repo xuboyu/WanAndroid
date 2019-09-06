@@ -1,6 +1,7 @@
 package wanandroid.xuboyu.com.wanandroid.common
 
 import android.widget.Toast
+import retrofit2.http.DELETE
 
 /**
  * use：公共参数定义
@@ -182,6 +183,21 @@ object Constant {
      * 新增一条TODO
      */
     const val ADD_TODO = "/lg/todo/add/json"
+
+    /**
+     * 更新一条TODO
+     */
+    const val UPDATE_TODO = "/lg/todo/update/{id}/json"
+
+    /**
+     * 仅更新状态
+     */
+    const val UPDATE_STATUE_TODO = "/lg/todo/done/{id}/json"
+
+    /**
+     * 删除一条TODO
+     */
+    const val DELETE_TODO = "/lg/todo/delete/{id}/json"
 
     /* ================================== END ==================================*/
 

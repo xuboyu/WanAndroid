@@ -1,7 +1,6 @@
 package wanandroid.xuboyu.com.wanandroid.adapter
 
 import android.content.Context
-import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import wanandroid.xuboyu.com.wanandroid.R

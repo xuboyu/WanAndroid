@@ -26,7 +26,9 @@ data class TodoListResponse(
                 var dateStr: String,
                 var content: String,
                 var date: String,
-                var userId: Int
+                var userId: Int,
+                var type: Int,
+                var id: Int
         )
     }
 }

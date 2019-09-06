@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:id="@+id/item_type"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/work"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"/>
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/item_type"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"
+            android:layout_marginEnd="@dimen/mt10"
+            android:text="测试"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/item_i_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_toStartOf="@+id/delete_todo"-->
+            <!--android:layout_marginEnd="@dimen/mt10"-->
+            <!--android:text="重要"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textColor="@color/colorAccent"/>-->
+
+        <ImageButton
+            android:id="@+id/delete_todo"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mt10"
+            android:background="@drawable/delete_black"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:id="@+id/todo_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/mt10"
+            android:text="优先级：一般"
+            android:textSize="14sp"
+            android:textColor="@color/colorPrimary"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/item_content"
+            android:layout_toStartOf="@+id/update_status_todo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:maxLines="3"
+            android:text="测试内容"
+            android:textSize="14sp"/>
+
+        <ImageButton
+            android:id="@+id/update_status_todo"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mt10"
+            android:background="@drawable/finsh"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -14,4 +14,6 @@
     <color name="alpha_white">#00ffffff</color>
     <color name="black_trans">#5c000000</color>
     <color name="gray">#989898</color>
+
+    <color name="bg_header">#cccccc</color>
 </resources>

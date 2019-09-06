@@ -72,6 +72,8 @@
     <string name="search_menu">搜索</string>
 
     <!-- todo相关 -->
+    <string name="undone_todo">未完成</string>
+    <string name="done_todo">已完成</string>
     <string name="add_title">添加待办</string>
     <string name="todo_title">输入TODO名称，如“完成作业”</string>
     <string name="todo_content">输入TODO事项，如："\n"1、数学作业"\n"2、语文作业"\n"3、化学作业"\n"4、英语作业"\n"......</string>

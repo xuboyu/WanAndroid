@@ -131,7 +131,7 @@
             android:windowSoftInputMode="adjustPan|stateHidden" />
 
         <activity
-            android:name=".ui.activity.ToDoActivity"
+            android:name=".ui.activity.TodoActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
