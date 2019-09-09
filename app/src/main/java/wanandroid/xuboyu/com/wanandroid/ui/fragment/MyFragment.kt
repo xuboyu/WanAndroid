@@ -60,6 +60,7 @@ class MyFragment: BaseFragment() {
         todo_r.setOnClickListener(onClickListener)
         c_web_r.setOnClickListener(onClickListener)
         c_work_r.setOnClickListener(onClickListener)
+        about_r.setOnClickListener(onClickListener)
         logout_r.setOnClickListener(onClickListener)
 
     }
@@ -108,6 +109,16 @@ class MyFragment: BaseFragment() {
             R.id.c_work_r -> {
                 if (isLogin) {
                     Intent(this.activity,CollectWorkListActivity::class.java).run {
+                        startActivity(this)
+                    }
+                } else {
+                    showToast("请先登录")
+                }
+            }
+
+            R.id.about_r -> {
+                if (isLogin) {
+                    Intent(this.activity,AboutActivity::class.java).run {
                         startActivity(this)
                     }
                 } else {

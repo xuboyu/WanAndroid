@@ -29,7 +29,9 @@
         android:theme="@style/SplashTheme">
 
         <activity
-            android:name="wanandroid.xuboyu.com.wanandroid.ui.activity.SplashActivity">
+            android:name="wanandroid.xuboyu.com.wanandroid.ui.activity.SplashActivity"
+            android:configChanges="keyboard|screenSize|orientation|layoutDirection"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -136,6 +138,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
 
+        <activity
+            android:name=".ui.activity.AboutActivity"
+            android:configChanges="keyboard|screenSize|orientation|layoutDirection"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>
 
 </manifest>

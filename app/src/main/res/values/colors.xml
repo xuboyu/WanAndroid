@@ -6,7 +6,7 @@
     <color name="colorPrimaryDark1">#28292d</color>
     <color name="colorAccent">#D81B60</color>
     <color name="green">#62b900</color>
-
+    <color name="text_color_primary">#276592</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="view_bg">#F6F6F6</color>
