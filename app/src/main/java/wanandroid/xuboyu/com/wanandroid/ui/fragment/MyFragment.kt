@@ -81,8 +81,10 @@ class MyFragment: BaseFragment() {
         when(view.id) {
 
             R.id.nickName -> {
-                Intent(this.activity,LoginActivity::class.java).run {
-                    startActivityForResult(this,Constant.MY_REQUEST_CODE)
+                if (!isLogin) {
+                    Intent(this.activity, LoginActivity::class.java).run {
+                        startActivityForResult(this, Constant.MY_REQUEST_CODE)
+                    }
                 }
             }
 
